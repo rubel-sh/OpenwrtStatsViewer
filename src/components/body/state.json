@@ -1,0 +1,51 @@
+{
+    "date": "2022-03-17 18:17",
+    "source": "MI-4C",
+    "data": [
+        {
+            "user": "M2006C3MII-Redmi9",
+            "macaddress": "bc:6a:d1:80:11:57",
+            "download": "23355",
+            "upload": "3571",
+            "totaldownload": "103444095",
+            "totalupload": "5841709",
+            "total": "109285804"
+        },
+        {
+            "user": "Kmummy",
+            "macaddress": "20:d2:76:a9:cb:60",
+            "download": "188172",
+            "upload": "4033",
+            "totaldownload": "177201904",
+            "totalupload": "3030694",
+            "total": "180232598"
+        },
+        {
+            "user": "KTaunty",
+            "macaddress": "b4:c4:fc:9d:4b:30",
+            "download": "5021",
+            "upload": "29918",
+            "totaldownload": "4233243",
+            "totalupload": "31481513",
+            "total": "35714756"
+        },
+        {
+            "user": "Redmi-10-Prime",
+            "macaddress": "8c:7a:3d:7f:ee:72",
+            "download": "53292",
+            "upload": "34048",
+            "totaldownload": "68274660",
+            "totalupload": "49409292",
+            "total": "117683952"
+        },
+        {
+            "user": "21061119BI",
+            "macaddress": "8c:7a:3d:7f:09:6a",
+            "download": "397",
+            "upload": "492",
+            "totaldownload": "1170742",
+            "totalupload": "1415395",
+            "total": "2586137"
+        }
+    ]
+}
