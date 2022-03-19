@@ -13,7 +13,7 @@ class TotalUsage extends Component {
             return (
 
                 <div key={user.user} className="totalusage_container">
-                    <h3>{user.user}</h3>
+                    <h3 >{user.user}</h3>
                     <div className='totalusage_stats'>
                         <p>Download : {calculateData(user.download)}</p>
                         <p>Upload : {calculateData(user.upload)}</p>
@@ -28,7 +28,7 @@ class TotalUsage extends Component {
         return (
 
             <div >
-                <h1>Total Data Usage of Clients</h1>
+                <h1 style={{ marginTop: '10px' }}> Data Usage of Clients</h1>
                 <hr />
                 <div className='totalUsage_parent'>
                     {openwrtUser}
