@@ -10,15 +10,28 @@ class TotalUsage extends Component {
         const openwrtUser = this.state.data.data.map(user => {
             console.log(user);
             const calculateData = data => (Number(data) / 1024) < 1024 ? (Number(data) / 1024).toFixed(2) + " MB" : ((Number(data) / 1024) / 1024).toFixed(2) + " GB";
+            const styles = { indicator_icon: { width: '40px' } }
             return (
 
                 <div key={user.user} className="totalusage_container">
-                    <h3 >{user.user}</h3>
+                    <h4 >{user.user}</h4>
                     <div className='totalusage_stats'>
-                        <p>Download : {calculateData(user.download)}</p>
-                        <p>Upload : {calculateData(user.upload)}</p>
-                        <p>Total Download : {calculateData(user.totaldownload)}</p>
-                        <p>Total Upload : {calculateData(user.totalupload)}</p>
+                        {/* <p>Download : {calculateData(user.download)}</p>
+                        <p>Upload : {calculateData(user.upload)}</p> */}
+                        <p>
+
+                            <img style={styles.indicator_icon} src="./assets/icons/cloud-download.png" alt="download_icon" />
+                            <strong>
+                                {calculateData(user.totaldownload)}
+                            </strong>
+                        </p>
+                        <p>
+
+                            <img style={styles.indicator_icon} src="./assets/icons/cloud-upload.png" alt="download_icon" />
+                            <strong>
+                                {calculateData(user.totalupload)}
+                            </strong>
+                        </p>
                     </div>
 
                 </div>

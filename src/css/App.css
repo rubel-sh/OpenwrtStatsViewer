@@ -20,9 +20,11 @@
   margin: 20px 0;
 }
 .totalusage_container{
-  display: inline-block;
-  text-align: center;
-  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 50px;
   width: 100%;
   background-color: rgb(43, 43, 43);
   color: rgb(255, 255, 255);
@@ -35,4 +37,16 @@
   transition: transform 300ms ease;
   transform: translateY(-4px);
 
+}
+.totalusage_stats{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin-top: 5px;
+}
+.totalusage_stats>p>strong{
+  margin-left: 6px;
+  font-weight: 300;
+  font-size: 1.3rem;
 }
