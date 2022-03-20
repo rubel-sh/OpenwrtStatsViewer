@@ -50,3 +50,8 @@
   font-weight: 300;
   font-size: 1.3rem;
 }
+/* Styles for Line Chart */
+canvus {
+  width: 400px;
+  height: 200px;
+}
