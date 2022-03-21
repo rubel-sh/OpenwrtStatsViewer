@@ -10,13 +10,23 @@ import {
     Legend,
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
-import timeLapseState from './speedState.json'
+import { connect } from 'react-redux'
+
+const mapStateToProps = state => {
+    console.log("Home mapStateToProps", state);
+    return {
+        router1: state.speedStats.router1
+    }
+}
 
 class Speed extends Component {
-    state = {
-        timeLapseState
+
+    componentDidMount() {
+        console.log("Home state", this.state);
+        console.log("Home props", this.props);
     }
     render() {
+
 
         ChartJS.register(
             CategoryScale,
@@ -55,11 +65,11 @@ class Speed extends Component {
         const calculateData = data => parseFloat(Number(data) / 1024);
         // console.log(calculateData());
         // label = Timelinesdfsdfsdfsdfsdfsfsf
-        const labels = timeLapseState.router1.map(timeState => timeState.time);
+        const labels = this.props.router1.map(timeState => timeState.time);
         // Data Array for downloadfgf
-        const downloadArray = timeLapseState.router1.map(downState => calculateData(downState.download))
+        const downloadArray = this.props.router1.map(downState => calculateData(downState.download))
         // Data array for upload
-        const uploadArray = timeLapseState.router1.map(upState => calculateData(upState.upload))
+        const uploadArray = this.props.router1.map(upState => calculateData(upState.upload))
         const data = {
             labels: labels,
             datasets: [
@@ -116,4 +126,4 @@ class Speed extends Component {
 
 }
 
-export default Speed;
+export default connect(mapStateToProps)(Speed);

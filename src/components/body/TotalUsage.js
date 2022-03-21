@@ -9,15 +9,12 @@ class TotalUsage extends Component {
         axios.get('https://py.rexopenwrt.repl.co/rawdata')
             .then(response => {
                 const result = response.data[response.data.length - 1];
-                console.log("json:", result);
                 this.setState({ data: result })
             })
             .catch(error => console.log(error))
     }
 
     render() {
-
-        console.log("state:", this.state);
         const openwrtUser = this.state.data.data.map(user => {
             const calculateData = data => (Number(data) / 1024) < 1024 ? (Number(data) / 1024).toFixed(2) + " MB" : ((Number(data) / 1024) / 1024).toFixed(2) + " GB";
             const styles = { indicator_icon: { width: '40px' } }
