@@ -9,11 +9,11 @@ function Body() {
     return (
         <div>
             <Switch>
-                <Route path="/home" exact component={Home} />
-                <Route path="/speed" exact component={Speed} />
-                <Route path="/totalusage" exact component={TotalSpeed} />
-                <Route path="/clientlists" exact component={ClientLists} />
-                <Redirect from="/" to="/home" />
+                <Route path="/OpenwrtStatesViewer/home" exact component={Home} />
+                <Route path="/OpenwrtStatesViewer/speed" exact component={Speed} />
+                <Route path="/OpenwrtStatesViewer/totalusage" exact component={TotalSpeed} />
+                <Route path="/OpenwrtStatesViewer/clientlists" exact component={ClientLists} />
+                <Redirect from="/" to="/OpenwrtStatesViewer/home" />
             </Switch>
         </div>
     );

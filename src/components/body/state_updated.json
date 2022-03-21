@@ -1,0 +1,296 @@
+[
+    {
+        "date": "2022-03-22 00:06",
+        "source": "MI-4C",
+        "data": [
+            {
+                "user": "Mi-A3",
+                "macaddress": "60:ab:67:86:df:ef",
+                "download": "20",
+                "upload": "74",
+                "totaldownload": "2441",
+                "totalupload": "5171",
+                "total": "7612"
+            },
+            {
+                "user": "192.168.1.137",
+                "macaddress": "4c:ed:fb:3f:70:7e",
+                "download": "3868",
+                "upload": "469",
+                "totaldownload": "10439780",
+                "totalupload": "1226103",
+                "total": "11665883"
+            },
+            {
+                "user": "Redmi-Note-8",
+                "macaddress": "1c:cc:d6:76:39:29",
+                "download": "177",
+                "upload": "148",
+                "totaldownload": "258011",
+                "totalupload": "159094",
+                "total": "417105"
+            },
+            {
+                "user": "Mi-A2-Lite",
+                "macaddress": "00:0a:f5:b0:71:48",
+                "download": "4068",
+                "upload": "2677",
+                "totaldownload": "2818345",
+                "totalupload": "2284508",
+                "total": "5102853"
+            }
+        ]
+    },
+    {
+        "date": "2022-03-22 00:34",
+        "source": "MI-4C",
+        "data": [
+            {
+                "user": "Mi-A3",
+                "macaddress": "60:ab:67:86:df:ef",
+                "download": "14",
+                "upload": "69",
+                "totaldownload": "839724",
+                "totalupload": "489908",
+                "total": "1329632"
+            },
+            {
+                "user": "DESKTOP-HL19AL7",
+                "macaddress": "4c:ed:fb:3f:70:7e",
+                "download": "660",
+                "upload": "1432",
+                "totaldownload": "187507032",
+                "totalupload": "151512882",
+                "total": "339019914"
+            },
+            {
+                "user": "Redmi-Note-8",
+                "macaddress": "1c:cc:d6:76:39:29",
+                "download": "0",
+                "upload": "0",
+                "totaldownload": "242123",
+                "totalupload": "171440",
+                "total": "413563"
+            },
+            {
+                "user": "Mi-A2-Lite",
+                "macaddress": "00:0a:f5:b0:71:48",
+                "download": "8043",
+                "upload": "5713",
+                "totaldownload": "7181974",
+                "totalupload": "3494089",
+                "total": "10676063"
+            }
+        ]
+    },
+    {
+        "date": "2022-03-22 01:09",
+        "source": "MI-4C",
+        "data": [
+            {
+                "user": "Mi-A3",
+                "macaddress": "60:ab:67:86:df:ef",
+                "download": "0",
+                "upload": "0",
+                "totaldownload": "201242",
+                "totalupload": "143040",
+                "total": "344282"
+            },
+            {
+                "user": "Desktop",
+                "macaddress": "4c:ed:fb:3f:70:7e",
+                "download": "33254",
+                "upload": "3017",
+                "totaldownload": "90617510",
+                "totalupload": "37451891",
+                "total": "128069401"
+            },
+            {
+                "user": "Redmi-Note-8",
+                "macaddress": "1c:cc:d6:76:39:29",
+                "download": "28308",
+                "upload": "2087",
+                "totaldownload": "3337187",
+                "totalupload": "425204",
+                "total": "3762391"
+            },
+            {
+                "user": "Mi-A2-Lite",
+                "macaddress": "00:0a:f5:b0:71:48",
+                "download": "7930",
+                "upload": "5444",
+                "totaldownload": "18328951",
+                "totalupload": "10893339",
+                "total": "29222290"
+            }
+        ]
+    },
+    {
+        "date": "2022-03-22 01:37",
+        "source": "MI-4C",
+        "data": [
+            {
+                "user": "Mi-A3",
+                "macaddress": "60:ab:67:86:df:ef",
+                "download": "949",
+                "upload": "113",
+                "totaldownload": "319566",
+                "totalupload": "227505",
+                "total": "547071"
+            },
+            {
+                "user": "Desktop",
+                "macaddress": "4c:ed:fb:3f:70:7e",
+                "download": "1965",
+                "upload": "3008",
+                "totaldownload": "4325142",
+                "totalupload": "2668038",
+                "total": "6993180"
+            },
+            {
+                "user": "Redmi-Note-8",
+                "macaddress": "1c:cc:d6:76:39:29",
+                "download": "1",
+                "upload": "9",
+                "totaldownload": "166612",
+                "totalupload": "80001",
+                "total": "246613"
+            },
+            {
+                "user": "Mi-A2-Lite",
+                "macaddress": "00:0a:f5:b0:71:48",
+                "download": "9430",
+                "upload": "3423",
+                "totaldownload": "13569362",
+                "totalupload": "8490059",
+                "total": "22059421"
+            }
+        ]
+    },
+    {
+        "date": "2022-03-22 02:05",
+        "source": "MI-4C",
+        "data": [
+            {
+                "user": "Mi-A3",
+                "macaddress": "60:ab:67:86:df:ef",
+                "download": "305",
+                "upload": "136",
+                "totaldownload": "194414",
+                "totalupload": "372974",
+                "total": "567388"
+            },
+            {
+                "user": "Desktop",
+                "macaddress": "4c:ed:fb:3f:70:7e",
+                "download": "834",
+                "upload": "408",
+                "totaldownload": "4042529",
+                "totalupload": "4475155",
+                "total": "8517684"
+            },
+            {
+                "user": "Redmi-Note-8",
+                "macaddress": "1c:cc:d6:76:39:29",
+                "download": "15",
+                "upload": "6",
+                "totaldownload": "1059993",
+                "totalupload": "155676",
+                "total": "1215669"
+            },
+            {
+                "user": "Mi-A2-Lite",
+                "macaddress": "00:0a:f5:b0:71:48",
+                "download": "606",
+                "upload": "1085",
+                "totaldownload": "57566700",
+                "totalupload": "6676104",
+                "total": "64242804"
+            }
+        ]
+    },
+    {
+        "date": "2022-03-22 02:33",
+        "source": "MI-4C",
+        "data": [
+            {
+                "user": "Mi-A3",
+                "macaddress": "60:ab:67:86:df:ef",
+                "download": "17",
+                "upload": "27",
+                "totaldownload": "2727020",
+                "totalupload": "292057",
+                "total": "3019077"
+            },
+            {
+                "user": "Desktop",
+                "macaddress": "4c:ed:fb:3f:70:7e",
+                "download": "34377",
+                "upload": "992",
+                "totaldownload": "33397751",
+                "totalupload": "4907825",
+                "total": "38305576"
+            },
+            {
+                "user": "Redmi-Note-8",
+                "macaddress": "1c:cc:d6:76:39:29",
+                "download": "0",
+                "upload": "0",
+                "totaldownload": "215635",
+                "totalupload": "111225",
+                "total": "326860"
+            },
+            {
+                "user": "Mi-A2-Lite",
+                "macaddress": "00:0a:f5:b0:71:48",
+                "download": "906",
+                "upload": "668",
+                "totaldownload": "230398",
+                "totalupload": "244071",
+                "total": "474469"
+            }
+        ]
+    },
+    {
+        "date": "2022-03-22 03:01",
+        "source": "MI-4C",
+        "data": [
+            {
+                "user": "Mi-A3",
+                "macaddress": "60:ab:67:86:df:ef",
+                "download": "22",
+                "upload": "57",
+                "totaldownload": "178798",
+                "totalupload": "146536",
+                "total": "325334"
+            },
+            {
+                "user": "Desktop",
+                "macaddress": "4c:ed:fb:3f:70:7e",
+                "download": "8448",
+                "upload": "1904",
+                "totaldownload": "9122667",
+                "totalupload": "7369423",
+                "total": "16492090"
+            },
+            {
+                "user": "Redmi-Note-8",
+                "macaddress": "1c:cc:d6:76:39:29",
+                "download": "416",
+                "upload": "161",
+                "totaldownload": "1479452",
+                "totalupload": "280989",
+                "total": "1760441"
+            },
+            {
+                "user": "Mi-A2-Lite",
+                "macaddress": "00:0a:f5:b0:71:48",
+                "download": "3",
+                "upload": "3",
+                "totaldownload": "147295",
+                "totalupload": "88390",
+                "total": "235685"
+            }
+        ]
+    }
+]

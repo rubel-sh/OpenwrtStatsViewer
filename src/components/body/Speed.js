@@ -54,9 +54,9 @@ class Speed extends Component {
         };
         const calculateData = data => parseFloat(Number(data) / 1024);
         // console.log(calculateData());
-        // label = Timeline
+        // label = Timelinesdfsdfsdfsdfsdfsfsf
         const labels = timeLapseState.router1.map(timeState => timeState.time);
-        // Data Array for download
+        // Data Array for downloadfgf
         const downloadArray = timeLapseState.router1.map(downState => calculateData(downState.download))
         // Data array for upload
         const uploadArray = timeLapseState.router1.map(upState => calculateData(upState.upload))
@@ -74,15 +74,16 @@ class Speed extends Component {
                     pointRadius: 6,
                     pointBorderWidth: 4,
                     pointHoverRadius: 8,
+
                 },
                 {
                     label: 'Upload',
                     data: uploadArray,
-                    fill: false,
                     lineTension: 0.4,
                     backgroundColor: '#151D3B',
                     borderColor: '#FFC300',
                     borderWidth: 2,
+
                 },
             ],
         };
