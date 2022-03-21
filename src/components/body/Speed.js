@@ -13,10 +13,11 @@ import { Line } from 'react-chartjs-2';
 import timeLapseState from './speedState.json'
 
 class Speed extends Component {
+    state = {
+        timeLapseState
+    }
     render() {
-        this.state = {
-            timeLapseState
-        }
+
         ChartJS.register(
             CategoryScale,
             LinearScale,
