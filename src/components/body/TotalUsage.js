@@ -43,9 +43,8 @@ class TotalUsage extends Component {
             )
         });
         return (
-
-            <div >
-                <h2 style={{ marginTop: '10px', fontWeight: '300' }}> Data Usage of Clients</h2>
+            < div >
+                <h2 style={{ marginTop: '10px', fontWeight: '300' }}> Last Update: {this.state.data.date}</h2>
                 <hr />
                 <div className='totalUsage_parent'>
                     {openwrtUser}
