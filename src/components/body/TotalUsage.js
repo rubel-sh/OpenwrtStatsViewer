@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from "axios"
 import stateJSON from './state_updated.json'
-import { formatBytes } from '../../customMethods/formatBytes'
+import { formatBytes } from '../../customMethods/customMethods'
 class TotalUsage extends Component {
     state = {
         data: stateJSON[0]
