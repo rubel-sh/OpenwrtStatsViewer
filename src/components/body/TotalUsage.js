@@ -16,7 +16,14 @@ class TotalUsage extends Component {
 
     render() {
         const openwrtUser = this.state.data.data.map(user => {
-            const calculateData = data => (Number(data) / 1024) < 1024 ? (Number(data) / 1024).toFixed(2) + " MB" : ((Number(data) / 1024) / 1024).toFixed(2) + " GB";
+            const formatBytes = (bytes, decimals = 2) => {
+                if (bytes === 0) return '0 Bytes';
+                const k = 1024;
+                const dm = decimals < 0 ? 0 : decimals;
+                const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
+                const i = Math.floor(Math.log(bytes) / Math.log(k));
+                return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
+            }
             const styles = { indicator_icon: { width: '40px' } }
             return (
 
@@ -26,13 +33,13 @@ class TotalUsage extends Component {
                         <p>
                             <img style={styles.indicator_icon} src="https://github.com/Rubrex/OpenwrtStatesViewer/blob/main/public/assets/icons/cloud-download.png?raw=true" alt="download_icon" />
                             <strong>
-                                {calculateData(user.totaldownload)}
+                                {formatBytes(user.totaldownload)}
                             </strong>
                         </p>
                         <p>
                             <img style={styles.indicator_icon} src="https://github.com/Rubrex/OpenwrtStatesViewer/blob/main/public/assets/icons/cloud-upload.png?raw=true" alt="download_icon" />
                             <strong>
-                                {calculateData(user.totalupload)}
+                                {formatBytes(user.totalupload)}
                             </strong>
                         </p>
                     </div>

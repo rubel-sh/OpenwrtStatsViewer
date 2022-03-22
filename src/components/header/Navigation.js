@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import { Navbar, NavbarBrand, Nav, NavItem, NavbarToggler, Collapse } from "reactstrap";
+import { Navbar, NavbarBrand, Nav, NavItem, NavbarToggler, Collapse, NavbarText } from "reactstrap";
 import { NavLink } from 'react-router-dom'
+import WholeUsage from './wholeUsage'
 
 class Navigation extends Component {
   constructor(props) {
@@ -24,7 +25,7 @@ class Navigation extends Component {
             <Collapse navbar isOpen={this.state.isNavOpen}>
               <Nav className="mr-auto" navbar>
                 <NavItem>
-                  <NavLink exact to="/OpenwrtStatesViewer/home" className="nav-link">Home</NavLink>
+                  <NavLink exact to="/OpenwrtStatesViewer/" className="nav-link">Home</NavLink>
                 </NavItem>
                 <NavItem>
                   <NavLink exact to="/OpenwrtStatesViewer/speed" className="nav-link">Speed</NavLink>
@@ -36,8 +37,11 @@ class Navigation extends Component {
                   <NavLink exact to="/OpenwrtStatesViewer/clientlists" className="nav-link">Client Lists</NavLink>
                 </NavItem>
               </Nav>
-            </Collapse>
 
+            </Collapse>
+            <NavbarText>
+              <WholeUsage />
+            </NavbarText>
           </div>
         </Navbar>
       </div>

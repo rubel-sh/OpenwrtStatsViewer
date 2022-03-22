@@ -1,5 +1,4 @@
 import SPEEDSTATS from '../components/body/speedState.json'
-
 const initialState = {
     speedStats: SPEEDSTATS
 }
