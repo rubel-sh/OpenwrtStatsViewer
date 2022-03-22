@@ -15,6 +15,7 @@ export const findDeviceObject = (stateOfRawData, deviceName) => {
     return deviceObject
 }
 export const formatBytes = (bytes, decimals = 2) => {
+    bytes = parseFloat(bytes);
     if (bytes === 0) return '0 Bytes';
     const k = 1024;
     const dm = decimals < 0 ? 0 : decimals;
