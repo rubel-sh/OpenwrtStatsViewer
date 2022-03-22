@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from "axios"
 import stateJSON from './state_updated.json'
+import { formatBytes } from '../../customMethods/formatBytes'
 class TotalUsage extends Component {
     state = {
         data: stateJSON[0]
@@ -16,14 +17,7 @@ class TotalUsage extends Component {
 
     render() {
         const openwrtUser = this.state.data.data.map(user => {
-            const formatBytes = (bytes, decimals = 2) => {
-                if (bytes === 0) return '0 Bytes';
-                const k = 1024;
-                const dm = decimals < 0 ? 0 : decimals;
-                const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
-                const i = Math.floor(Math.log(bytes) / Math.log(k));
-                return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
-            }
+
             const styles = { indicator_icon: { width: '40px' } }
             return (
 
