@@ -1,6 +1,5 @@
 import * as actionTypes from './actionTypes'
-import stateJSON from '../components/body/state_updated.json'
-
+import axios from 'axios'
 
 export const usageLoading = () => ({
     type: actionTypes.USAGE_LOADING,
@@ -11,11 +10,12 @@ export const loadUsage = stateJSON => ({
     payload: stateJSON
 })
 
-export const fetchUsage = () => {
-    console.log('vai help');
-    return dispatch => {
-        dispatch(usageLoading());
-        setTimeout(() => { dispatch(loadUsage(stateJSON)) }, 5000
-        );
-    }
+export const fetchUsage = () => dispatch => {
+    dispatch(usageLoading());
+    axios.get('https://py.rexopenwrt.repl.co/rawdata')
+        .then(response => response.data[response.data.length - 1])
+        .then(totalUsageStats => dispatch(loadUsage(totalUsageStats)))
+        .catch(error => console.log(error))
+
+
 }

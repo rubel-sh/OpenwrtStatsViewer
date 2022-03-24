@@ -1,6 +1,7 @@
-import { createStore } from 'redux'
+import { createStore, applyMiddleware } from 'redux'
+import thunk from 'redux-thunk';
 import { Reducer } from './reducer'
 
-const myStore = createStore(Reducer);
+const myStore = createStore(Reducer, applyMiddleware(thunk));
 
 export default myStore;

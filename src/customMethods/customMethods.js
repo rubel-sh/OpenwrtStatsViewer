@@ -1,6 +1,8 @@
-// Usage:-
-// const a2Lite = findDeviceObject(response <- axios, "Mi-A2-Lite");
-// console.log(a2Lite);
+/* 
+Usage:-
+const a2Lite = findDeviceObject(response <- axios, "Mi-A2-Lite");
+console.log(a2Lite);
+*/
 export const findDeviceObject = (stateOfRawData, deviceName) => {
     const deviceObject = [];
     stateOfRawData.data.map(data => {
@@ -10,7 +12,6 @@ export const findDeviceObject = (stateOfRawData, deviceName) => {
             }
         }
         return deviceObject
-
     })
     return deviceObject
 }
