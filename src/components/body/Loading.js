@@ -1,9 +1,9 @@
 import React from "react";
 
-const Loading = () => {
+const Loading = (props) => {
     return (
-        <div className="col-12" style={{ padding: "60px" }}>
-            <span className="fa fa-spinner fa-pulse fa-5x"></span>
+        <div className="col-12" style={{ padding: "20px" }}>
+            <span className="fa fa-spinner fa-pulse fa-3x" ></span>
         </div >
     )
 }

@@ -1,11 +1,11 @@
 /* 
 Usage:-
-const a2Lite = findDeviceObject(response <- axios, "Mi-A2-Lite");
+const a2Lite = findDeviceObject(response.data <- axios, "Mi-A2-Lite");
 console.log(a2Lite);
 */
 export const findDeviceObject = (stateOfRawData, deviceName) => {
     const deviceObject = [];
-    stateOfRawData.data.map(data => {
+    stateOfRawData.map(data => {
         for (let i = 0; i < data.data.length; i++) {
             if (data.data[i].user === deviceName) {
                 return deviceObject.push(data.data[i], data.date)

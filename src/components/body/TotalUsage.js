@@ -3,6 +3,7 @@ import { formatBytes } from '../../customMethods/customMethods'
 import Loading from './Loading'
 import { fetchUsage } from '../../redux/actionCreators';
 import { connect } from 'react-redux';
+import { Table } from 'reactstrap';
 
 const mapStateToProps = state => {
 
@@ -33,37 +34,53 @@ class TotalUsage extends Component {
             )
         }
         else {
-            const openwrtUser = this.props.usageState.state.data.map(user => {
-                const styles = { indicator_icon: { width: '40px' } }
-                return (
+            let totalDownload = null;
+            let totalUpload = null;
+            let total = null;
 
-                    <div className='totalUsage_parent'>
-                        <div key={user.user} className="totalusage_container">
-                            <h4 >{user.user}</h4>
-                            <div className='totalusage_stats'>
-                                <p>
-                                    <img style={styles.indicator_icon} src="https://github.com/Rubrex/OpenwrtStatesViewer/blob/main/public/assets/icons/cloud-download.png?raw=true" alt="download_icon" />
-                                    <strong>
-                                        {formatBytes(user.totaldownload)}
-                                    </strong>
-                                </p>
-                                <p>
-                                    <img style={styles.indicator_icon} src="https://github.com/Rubrex/OpenwrtStatesViewer/blob/main/public/assets/icons/cloud-upload.png?raw=true" alt="download_icon" />
-                                    <strong>
-                                        {formatBytes(user.totalupload)}
-                                    </strong>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
+            const tableUsers = this.props.usageState.state.data.map((user, index) => {
+                let userdownload = parseFloat(user.totaldownload);
+                let userupload = parseFloat(user.totalupload);
+                let usertotal = parseFloat(user.total);
+
+                totalDownload = totalDownload + userdownload;
+                totalUpload = totalUpload + userupload;
+                total = total + usertotal;
+                return (
+                    <tr>
+                        <td>{index}</td>
+                        <td>{user.user}</td>
+                        <td>{formatBytes(user.totaldownload)}</td>
+                        <td>{formatBytes(user.totalupload)}</td>
+                        <td>{formatBytes(user.total)}</td>
+                    </tr>
                 )
             })
             return (
                 < div >
-                    <h2 style={{ marginTop: '10px', fontWeight: '300' }}> {this.props.usageState.state.date} </h2>
-                    <hr />
+                    <h4 style={{ marginTop: '10px', fontWeight: '300' }}>Last Update: {this.props.usageState.state.date} </h4>
                     <div className='totalUsage_parent'>
-                        {openwrtUser}
+                        <Table striped bordered hover size="md">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Device Name</th>
+                                    <th>T. Download</th>
+                                    <th>T. Upload</th>
+                                    <th>Total</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {tableUsers}
+                                <tr>
+                                    <td colSpan={2}><strong>Total</strong></td>
+                                    <td><strong>{formatBytes(totalDownload)}</strong></td>
+                                    <td><strong> {formatBytes(totalUpload)}</strong></td>
+                                    <td><strong>{formatBytes(total)}</strong></td>
+                                </tr>
+                            </tbody>
+
+                        </Table>
                     </div>
                 </div >
             )

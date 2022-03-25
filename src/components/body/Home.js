@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-function Home() {
-    return (
-        <div>
-            <h2 style={{ marginTop: '10px', fontWeight: '300' }}>Home</h2>
-            <hr />
-        </div>
-    );
+class Home extends Component {
+    render() {
+        return (
+            <div >
+                <h2 style={{ marginTop: '10px', fontWeight: '300' }}>Home</h2>
+                <hr />
+            </div >
+        )
+    }
 }
 
 export default Home;
