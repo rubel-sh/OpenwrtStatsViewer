@@ -8,7 +8,8 @@ export const findDeviceObject = (stateOfRawData, deviceName) => {
     stateOfRawData.map(data => {
         for (let i = 0; i < data.data.length; i++) {
             if (data.data[i].user === deviceName) {
-                return deviceObject.push(data.data[i], data.date)
+                return deviceObject.push(data.data[i])
+                // return deviceObject.push(data.data[i], data.date) <- Previous with Date
             }
         }
         return deviceObject

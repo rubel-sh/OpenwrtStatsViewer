@@ -21,4 +21,24 @@ const totalUsageReducer = (totalUsageState = { isLoading: true, state: [] }, act
             return totalUsageState
     }
 }
-export const Reducer = combineReducers({ totalUsageState: totalUsageReducer })
+
+const speedUsageReducer = (speedUsageState = { isLoading: true, state: ['default'] }, action) => {
+    switch (action.type) {
+        case actionTypes.SPEED_USAGE_LOADING:
+            return {
+                ...speedUsageState,
+                isLoading: true,
+                state: []
+            }
+        case actionTypes.SPEED_USAGE_LOADED:
+            return {
+                ...speedUsageState,
+                isLoading: false,
+                state: action.payload
+            }
+
+        default:
+            return speedUsageState
+    }
+}
+export const Reducer = combineReducers({ totalUsageState: totalUsageReducer, speedUsageState: speedUsageReducer })

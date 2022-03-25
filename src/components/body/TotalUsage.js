@@ -5,10 +5,10 @@ import { fetchUsage } from '../../redux/actionCreators';
 import { connect } from 'react-redux';
 import { Table } from 'reactstrap';
 
-const mapStateToProps = state => {
-
+const mapStateToProps = props => {
+    console.log("TotalUsage mapStateToProps", props);
     return {
-        usageState: state.totalUsageState
+        usageState: props.totalUsageState
     }
 }
 const mapDispatchToProps = dispatch => {
@@ -20,8 +20,8 @@ class TotalUsage extends Component {
     componentDidMount() {
         this.props.fetchUsage();
     }
-
     render() {
+        console.log('TotalUsage props: ', this.props);
         if (this.props.usageState.isLoading) {
             return (
                 < div >
@@ -47,7 +47,7 @@ class TotalUsage extends Component {
                 totalUpload = totalUpload + userupload;
                 total = total + usertotal;
                 return (
-                    <tr>
+                    <tr key={index}>
                         <td>{index}</td>
                         <td>{user.user}</td>
                         <td>{formatBytes(user.totaldownload)}</td>
