@@ -1,6 +1,6 @@
 # Live Demo
 
-https://rubrex.github.io/OpenwrtStatesViewer/
+https://rubrex.github.io/OpenwrtStatsViewer/
 
 # Getting Started with Create React App
 
