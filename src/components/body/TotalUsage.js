@@ -21,12 +21,9 @@ class TotalUsage extends Component {
         this.props.fetchUsage();
     }
     render() {
-        console.log('TotalUsage props: ', this.props);
         if (this.props.usageState.isLoading) {
             return (
                 < div >
-                    <h2 style={{ marginTop: '10px', fontWeight: '300' }}> Loading   </h2>
-                    <hr />
                     <div className='totalUsage_parent'>
                         <Loading />
                     </div>
@@ -56,9 +53,10 @@ class TotalUsage extends Component {
                     </tr>
                 )
             })
+            const timeFromEPOCH = new Date(parseInt(this.props.usageState.state.date));
             return (
                 < div >
-                    <h4 style={{ marginTop: '10px', fontWeight: '300' }}>Last Update: {this.props.usageState.state.date} </h4>
+                    <h4 style={{ marginTop: '10px', fontWeight: '300' }}>Last Update: {timeFromEPOCH.toLocaleString()} </h4>
                     <div className='totalUsage_parent'>
                         <Table striped bordered hover size="md">
                             <thead>
