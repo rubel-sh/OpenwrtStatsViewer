@@ -53,7 +53,7 @@ class TotalUsage extends Component {
                     </tr>
                 )
             })
-            const timeFromEPOCH = new Date(parseInt(this.props.usageState.state.date));
+            const timeFromEPOCH = new Date(parseInt(this.props.usageState.state.date * 1000));
             return (
                 < div >
                     <h4 style={{ marginTop: '10px', fontWeight: '300' }}>Last Update: {timeFromEPOCH.toLocaleString()} </h4>
