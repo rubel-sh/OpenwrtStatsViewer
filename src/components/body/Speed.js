@@ -42,7 +42,12 @@ class Speed extends Component {
 
 
         if (this.props.speedUsage.isLoading) {
-            return <Loading />
+            return (
+                <div className='speed_parent_loading'>
+                    <Loading />
+                </div>
+
+            )
         }
         else {
 

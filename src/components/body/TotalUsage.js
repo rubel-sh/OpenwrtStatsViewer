@@ -24,7 +24,7 @@ class TotalUsage extends Component {
         if (this.props.usageState.isLoading) {
             return (
                 < div >
-                    <div className='totalUsage_parent'>
+                    <div className='totalUsage_parent_loading'>
                         <Loading />
                     </div>
                 </div >

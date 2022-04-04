@@ -1,6 +1,6 @@
 {
   "name": "openwrt-states-viewer",
-  "homepage": "https://Rubrex.github.io/OpenwrtStatesViewer",
+  "homepage": "https://Rubrex.github.io/OpenwrtStatsViewer",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
