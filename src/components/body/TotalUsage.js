@@ -29,7 +29,7 @@ class TotalUsage extends Component {
         const fromEPOCH = currentEPOCH - 86400;
         console.log('1 day before current EPOCH: ', fromEPOCH);
         axios.post('https://py.rexopenwrt.repl.co/selecteddata', { "fromdate": fromEPOCH })
-            .then(response => console.log(response));
+            .then(response => console.log(response.data));
     }
     componentDidMount() {
         this.props.fetchUsage();
