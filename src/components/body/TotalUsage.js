@@ -29,6 +29,16 @@ class TotalUsage extends Component {
             sliderValue: Math.round(e.target.value)
         })
     }
+    increaseDaysHandler = e => {
+        return this.setState({
+            sliderValue: this.state.sliderValue + 1
+        })
+    }
+    decreaseDaysHandler = e => {
+        return this.setState({
+            sliderValue: this.state.sliderValue - 1
+        })
+    }
     // POST request from the values of slider
     sendTableJSON = () => {
         const currentEPOCH = Math.floor(Date.now() / 1000);
@@ -78,9 +88,12 @@ class TotalUsage extends Component {
                 < div >
                     <h4 style={{ marginTop: '10px', fontWeight: '300' }}>Last Update: {timeFromEPOCH.toLocaleString()} </h4>
                     <TotalUsageSliderSelector
-                        defaultValue={this.state.sliderValue}
+                        stateValue={this.state.sliderValue}
                         onChangeHandler={this.onSliderChangeHandler.bind(this)}
                         submitButtonHandler={this.sendTableJSON.bind(this)}
+                        increaseDaysHandler={this.increaseDaysHandler.bind(this)}
+                        decreaseDaysHandler={this.decreaseDaysHandler.bind(this)}
+
                     />
                     <div className='totalUsage_parent'>
                         <Table striped bordered hover size="md">
