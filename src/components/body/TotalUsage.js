@@ -4,9 +4,12 @@ import Loading from './Loading'
 import { fetchUsage } from '../../redux/actionCreators';
 import { connect } from 'react-redux';
 import { Table } from 'reactstrap';
+import axios from 'axios';
+import Button from '@mui/material/Button';
+import SendIcon from '@mui/icons-material/Send';
 
 const mapStateToProps = props => {
-    console.log("TotalUsage mapStateToProps", props);
+    // console.log("TotalUsage mapStateToProps", props);
     return {
         usageState: props.totalUsageState
     }
@@ -17,10 +20,21 @@ const mapDispatchToProps = dispatch => {
     }
 }
 class TotalUsage extends Component {
+    constructor(props) {
+        super(props);
+        this.sendTableJSON = this.sendTableJSON.bind(this);
+    }
+    sendTableJSON = () => {
+        console.log('activated');
+        axios.post('https://py.rexopenwrt.repl.co/refineddata', this.props.usageState.state.data)
+            .then(response => console.log(response));
+    }
     componentDidMount() {
         this.props.fetchUsage();
     }
     render() {
+        // Simple POST request with a JSON body using axios
+
         if (this.props.usageState.isLoading) {
             return (
                 < div >
@@ -54,6 +68,7 @@ class TotalUsage extends Component {
                 )
             })
             const timeFromEPOCH = new Date(parseInt(this.props.usageState.state.date * 1000));
+
             return (
                 < div >
                     <h4 style={{ marginTop: '10px', fontWeight: '300' }}>Last Update: {timeFromEPOCH.toLocaleString()} </h4>
@@ -80,6 +95,12 @@ class TotalUsage extends Component {
 
                         </Table>
                     </div>
+                    <div className='fixed_totalUsage_button'>
+                        <Button onClick={this.sendTableJSON} variant="contained" endIcon={<SendIcon />}>
+                            Send
+                        </Button>
+                    </div>
+
                 </div >
             )
         }
