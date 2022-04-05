@@ -4,12 +4,10 @@ import Loading from './Loading'
 import { fetchUsage } from '../../redux/actionCreators';
 import { connect } from 'react-redux';
 import { Table } from 'reactstrap';
+import TotalUsageSliderSelector from './TotalUsageSliderSelector';
 import axios from 'axios';
-import Button from '@mui/material/Button';
-import SendIcon from '@mui/icons-material/Send';
 
 const mapStateToProps = props => {
-    // console.log("TotalUsage mapStateToProps", props);
     return {
         usageState: props.totalUsageState
     }
@@ -22,12 +20,20 @@ const mapDispatchToProps = dispatch => {
 class TotalUsage extends Component {
     constructor(props) {
         super(props);
-        this.sendTableJSON = this.sendTableJSON.bind(this);
+        this.state = {
+            sliderValue: 7
+        }
     }
+    onSliderChangeHandler = e => {
+        return this.setState({
+            sliderValue: Math.round(e.target.value)
+        })
+    }
+    // POST request from the values of slider
     sendTableJSON = () => {
         const currentEPOCH = Math.floor(Date.now() / 1000);
-        const fromEPOCH = currentEPOCH - 86400;
-        console.log('1 day before current EPOCH: ', fromEPOCH);
+        const fromEPOCH = currentEPOCH - (86400 * this.state.sliderValue);
+        console.log(this.state.sliderValue + ' day before current EPOCH: ', fromEPOCH);
         axios.post('https://py.rexopenwrt.repl.co/selecteddata', { "fromdate": fromEPOCH })
             .then(response => console.log(response.data));
     }
@@ -35,8 +41,6 @@ class TotalUsage extends Component {
         this.props.fetchUsage();
     }
     render() {
-        // Simple POST request with a JSON body using axios
-
         if (this.props.usageState.isLoading) {
             return (
                 < div >
@@ -70,10 +74,14 @@ class TotalUsage extends Component {
                 )
             })
             const timeFromEPOCH = new Date(parseInt(this.props.usageState.state.date * 1000));
-
             return (
                 < div >
                     <h4 style={{ marginTop: '10px', fontWeight: '300' }}>Last Update: {timeFromEPOCH.toLocaleString()} </h4>
+                    <TotalUsageSliderSelector
+                        defaultValue={this.state.sliderValue}
+                        onChangeHandler={this.onSliderChangeHandler.bind(this)}
+                        submitButtonHandler={this.sendTableJSON.bind(this)}
+                    />
                     <div className='totalUsage_parent'>
                         <Table striped bordered hover size="md">
                             <thead>
@@ -94,15 +102,8 @@ class TotalUsage extends Component {
                                     <td><strong>{formatBytes(total)}</strong></td>
                                 </tr>
                             </tbody>
-
                         </Table>
                     </div>
-                    <div className='fixed_totalUsage_button'>
-                        <Button onClick={this.sendTableJSON} variant="contained" endIcon={<SendIcon />}>
-                            1 Days usage
-                        </Button>
-                    </div>
-
                 </div >
             )
         }
