@@ -26,7 +26,7 @@ class TotalUsage extends Component {
     }
     sendTableJSON = () => {
         console.log('activated');
-        axios.post('https://py.rexopenwrt.repl.co/refineddata', this.props.usageState.state.data)
+        axios.post('https://py.rexopenwrt.repl.co/status', this.props.usageState.state.data)
             .then(response => console.log(response));
     }
     componentDidMount() {
