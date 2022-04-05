@@ -34,6 +34,6 @@ export const fetchSpeed = () => dispatch => {
     dispatch(speedLoading());
     axios.get('https://py.rexopenwrt.repl.co/rawdata')
         .then(response => response.data)
-        .then(speedUsageState => dispatch(speedLoaded(findDeviceObject(speedUsageState, "Redmi-Note-8"))))
+        .then(speedUsageState => dispatch(speedLoaded(findDeviceObject(speedUsageState, "Desktop"))))
         .catch(error => console.log(error))
 }

@@ -111,7 +111,7 @@ class Speed extends Component {
                 </div>
             return (
                 <div>
-                    <h2 style={{ marginTop: '10px', fontWeight: '300' }}>Speed</h2>
+                    <h2 style={{ marginTop: '10px', fontWeight: '300' }}>Total-Usage Timelaps</h2>
                     <hr />
                     <div className="canvus-container">
                         {userGraph}

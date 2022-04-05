@@ -25,8 +25,10 @@ class TotalUsage extends Component {
         this.sendTableJSON = this.sendTableJSON.bind(this);
     }
     sendTableJSON = () => {
-        console.log('activated');
-        axios.post('https://py.rexopenwrt.repl.co/status', this.props.usageState.state.data)
+        const currentEPOCH = Math.floor(Date.now() / 1000);
+        const fromEPOCH = currentEPOCH - 86400;
+        console.log('1 day before current EPOCH: ', fromEPOCH);
+        axios.post('https://py.rexopenwrt.repl.co/selecteddata', { "fromdate": fromEPOCH })
             .then(response => console.log(response));
     }
     componentDidMount() {
@@ -97,7 +99,7 @@ class TotalUsage extends Component {
                     </div>
                     <div className='fixed_totalUsage_button'>
                         <Button onClick={this.sendTableJSON} variant="contained" endIcon={<SendIcon />}>
-                            Send
+                            1 Days usage
                         </Button>
                     </div>
 
