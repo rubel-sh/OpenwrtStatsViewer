@@ -4,8 +4,7 @@ import Loading from './Loading'
 import { fetchUsage } from '../../redux/actionCreators';
 import { connect } from 'react-redux';
 import { Table } from 'reactstrap';
-import TotalUsageSliderSelector from './TotalUsageSliderSelector';
-import axios from 'axios';
+
 
 const mapStateToProps = props => {
     return {
@@ -18,35 +17,8 @@ const mapDispatchToProps = dispatch => {
     }
 }
 class TotalUsage extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            sliderValue: 7
-        }
-    }
-    onSliderChangeHandler = e => {
-        return this.setState({
-            sliderValue: Math.round(e.target.value)
-        })
-    }
-    increaseDaysHandler = e => {
-        return this.setState({
-            sliderValue: this.state.sliderValue + 1
-        })
-    }
-    decreaseDaysHandler = e => {
-        return this.setState({
-            sliderValue: this.state.sliderValue - 1
-        })
-    }
-    // POST request from the values of slider
-    sendTableJSON = () => {
-        const currentEPOCH = Math.floor(Date.now() / 1000);
-        const fromEPOCH = currentEPOCH - (86400 * this.state.sliderValue);
-        console.log(this.state.sliderValue + ' day before current EPOCH: ', fromEPOCH);
-        axios.post('https://py.rexopenwrt.repl.co/selecteddata', { "fromdate": fromEPOCH })
-            .then(response => console.log(response.data));
-    }
+
+
     componentDidMount() {
         this.props.fetchUsage();
     }
@@ -87,14 +59,6 @@ class TotalUsage extends Component {
             return (
                 < div >
                     <h4 style={{ marginTop: '10px', fontWeight: '300' }}>Last Update: {timeFromEPOCH.toLocaleString()} </h4>
-                    <TotalUsageSliderSelector
-                        stateValue={this.state.sliderValue}
-                        onChangeHandler={this.onSliderChangeHandler.bind(this)}
-                        submitButtonHandler={this.sendTableJSON.bind(this)}
-                        increaseDaysHandler={this.increaseDaysHandler.bind(this)}
-                        decreaseDaysHandler={this.decreaseDaysHandler.bind(this)}
-
-                    />
                     <div className='totalUsage_parent'>
                         <Table striped bordered hover size="md">
                             <thead>

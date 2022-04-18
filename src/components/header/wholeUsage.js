@@ -1,4 +1,4 @@
-import react, { Component } from 'react';
+import { Component } from 'react';
 import axios from 'axios';
 import { formatBytes } from '../../customMethods/customMethods'
 class WholeUsage extends Component {

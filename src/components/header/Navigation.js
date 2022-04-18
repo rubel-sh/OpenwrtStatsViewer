@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Navbar, NavbarBrand, Nav, NavItem, NavbarToggler, Collapse, NavbarText } from "reactstrap";
 import { NavLink } from 'react-router-dom'
 import WholeUsage from './wholeUsage'
-
+import TotalUsageSliderSelector from '../body/TotalUsageSliderSelector'
 class Navigation extends Component {
   constructor(props) {
     super(props);
@@ -18,23 +18,25 @@ class Navigation extends Component {
   render() {
     return (
       <div>
-        <Navbar dark color="dark" expand="sm">
-          <div className="container">
-            <NavbarToggler onClick={this.navToggle} />
-            <NavbarBrand href="/OpenwrtStatsViewer">OpenWRT Stats</NavbarBrand>
+        <Navbar dark color="dark" expand="lg" >
+          <div className="container-md">
+            <NavbarBrand href="/OpenwrtStatsViewer">
+              <img
+                alt="Openwrt Logo"
+                src="https://i.ibb.co/cDmBYxm/Screenshot-2022-04-19-023609-removebg-preview-1.png"
+                style={{ maxWidth: '160px' }}
+              />
+            </NavbarBrand>
             <Collapse navbar isOpen={this.state.isNavOpen}>
-              <Nav className="mr-auto" navbar>
+              <Nav className="mr-auto align-middle" navbar>
                 <NavItem>
                   <NavLink exact to="/OpenwrtStatsViewer/" className="nav-link">Home</NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink exact to="/OpenwrtStatsViewer/speed" className="nav-link">Speed</NavLink>
-                </NavItem>
-                <NavItem>
-                  <NavLink exact to="/OpenwrtStatsViewer/totalusage" className="nav-link">Total Usage</NavLink>
-                </NavItem>
-                <NavItem>
                   <NavLink exact to="/OpenwrtStatsViewer/clientlists" className="nav-link">Client Lists</NavLink>
+                </NavItem>
+                <NavItem>
+                  <TotalUsageSliderSelector />
                 </NavItem>
               </Nav>
 
@@ -42,9 +44,10 @@ class Navigation extends Component {
             <NavbarText>
               <WholeUsage />
             </NavbarText>
+            <NavbarToggler onClick={this.navToggle} />
           </div>
-        </Navbar>
-      </div>
+        </Navbar >
+      </div >
     )
 
   };
