@@ -5,7 +5,7 @@ import SpeedChart from './Charts/SpeedChart'
 
 const ModalGraph = (props) => {
     return (
-        <Modal isOpen={props.modalOpen} fullscreen='xl' size="xl" centered>
+        <Modal isOpen={props.modalOpen} fullscreen='xl' size="xl" keyboard='true' centered>
             <ModalBody>
                 <TotalUsageChart selectedClient={props.selectedClient} />
                 <SpeedChart selectedClient={props.selectedClient} />

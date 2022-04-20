@@ -34,7 +34,7 @@ class TotalUsageSliderSelector extends Component {
         const currentEPOCH = Math.floor(Date.now() / 1000);
         const fromEPOCH = currentEPOCH - (86400 * this.state.sliderValue);
         console.log(this.state.sliderValue + ' day before current EPOCH: ', fromEPOCH);
-        axios.post('https://py.rexopenwrt.repl.co/selecteddata', { "fromdate": fromEPOCH })
+        axios.post('https://node.rexopenwrt.repl.co/output/graphdata', { "fromdate": fromEPOCH })
             .then(response => console.log(response.data));
     }
     render() {

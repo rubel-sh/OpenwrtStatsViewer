@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Navbar, NavbarBrand, Nav, NavItem, NavbarToggler, Collapse, NavbarText } from "reactstrap";
 import { NavLink } from 'react-router-dom'
 import WholeUsage from './wholeUsage'
-import TotalUsageSliderSelector from '../body/TotalUsageSliderSelector'
+import TotalUsageSliderSelector from './TotalUsageSliderSelector'
 class Navigation extends Component {
   constructor(props) {
     super(props);
