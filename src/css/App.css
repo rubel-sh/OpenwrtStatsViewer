@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Sen&display=swap');
+
 .App {
   text-align: center;
 }
@@ -48,3 +51,106 @@ canvus {
 }
 
 /* Styles for Total Usage Table */
+
+/* Clients.js */
+.rc_parent {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-auto-rows: 120px;
+  grid-gap: 15px;
+  grid-auto-flow: dense;
+}
+
+.rc_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  font-family: 'Sen', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1rem;
+  font-weight: bold;
+  background-color: rgb(31, 30, 30);
+  color: rgb(255, 255, 255);
+  animation: dropdown .5s ease-in;
+  cursor: pointer;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.rc_container:hover {
+  transition: transform 300ms;
+  transform: scale(0.98);
+  background-color: rgba(0, 0, 0, 0.897);
+}
+
+@keyframes dropdown {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+    background-color: rgb(0, 180, 30);
+  }
+
+  80% {
+    transform: scale(1.1);
+    opacity: 1;
+    background-color: rgb(8, 83, 21);
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+    background-color: rgb(31, 30, 30);
+  }
+}
+
+.rc_username {}
+
+.rc_data_container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.rc_down,
+.rc_up {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.rc_data_container .rc_down {}
+
+.rc_data_container .rc_up {}
+
+
+/* End */
+/* Router.js */
+.router_parent {
+  margin-top: 1rem;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.router_child {
+  width: 100%;
+  padding: 10px 50px;
+  background-color: rgb(36, 36, 36);
+  border-left: 2px solid white;
+  border-right: 2px solid white;
+  color: white;
+  cursor: pointer;
+}
+
+.router_active {
+  background-color: rgb(75, 75, 75);
+  color: chartreuse;
+}
+
+.active_router {
+  background-color: rgb(75, 75, 75);
+  color: chartreuse;
+}

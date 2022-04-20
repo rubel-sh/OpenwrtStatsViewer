@@ -50,46 +50,50 @@ class TotalUsageSliderSelector extends Component {
                 <Stack
                     direction={{ xs: 'column', sm: 'row' }}
                     spacing={{ xs: 0.5, sm: 0.5, md: 0.5 }}
-                    alignItems="center"
-
                 >
-                    <Button >
-                        <Downloading
-                            style={myStyles.downAndUp}
-                            color='warning'
-                            fontSize='large'
-                            onClick={this.decreaseDaysHandler}
+                    <Stack
+                        direction={{ sm: 'row' }}
+                        spacing={{ xs: 0.5, sm: 0.5, md: 0.5 }}
+                        alignItems="center"
+
+                    >
+                        <Button >
+                            <Downloading
+                                style={myStyles.downAndUp}
+                                color='warning'
+                                fontSize='large'
+                                onClick={this.decreaseDaysHandler}
+                            />
+                        </Button>
+
+                        <Slider
+                            onChange={this.onSliderChangeHandler}
+                            defaultValue={7}
+                            value={this.state.sliderValue}
+                            aria-label="Default"
+                            valueLabelDisplay="auto"
+                            step={1}
+                            marks
+                            min={1}
+                            max={30}
+                            sx={{
+                                width: 180,
+                                color: 'success.main',
+                                '& .MuiSlider-thumb': {
+                                    borderRadius: '1px'
+                                },
+                            }}
+
                         />
-                    </Button>
-
-                    <Slider
-                        onChange={this.onSliderChangeHandler}
-                        defaultValue={7}
-                        value={this.state.sliderValue}
-                        aria-label="Default"
-                        valueLabelDisplay="auto"
-                        step={1}
-                        marks
-                        min={1}
-                        max={30}
-                        sx={{
-                            width: 180,
-                            color: 'success.main',
-                            '& .MuiSlider-thumb': {
-                                borderRadius: '1px'
-                            },
-                        }}
-
-                    />
-                    <Button >
-                        <ArrowCircleUp
-                            fontSize='large'
-                            color='success'
-                            style={myStyles.downAndUp}
-                            onClick={this.increaseDaysHandler}
-                        />
-                    </Button>
-
+                        <Button >
+                            <ArrowCircleUp
+                                fontSize='large'
+                                color='success'
+                                style={myStyles.downAndUp}
+                                onClick={this.increaseDaysHandler}
+                            />
+                        </Button>
+                    </Stack>
                     <Button
                         onClick={this.sendTableJSON}
                         variant="contained"

@@ -33,6 +33,9 @@ class Navigation extends Component {
                   <NavLink exact to="/OpenwrtStatsViewer/" className="nav-link">Home</NavLink>
                 </NavItem>
                 <NavItem>
+                  <NavLink exact to="/OpenwrtStatsViewer/router" className="nav-link">Router</NavLink>
+                </NavItem>
+                <NavItem>
                   <NavLink exact to="/OpenwrtStatsViewer/clientlists" className="nav-link">Client Lists</NavLink>
                 </NavItem>
                 <NavItem>
