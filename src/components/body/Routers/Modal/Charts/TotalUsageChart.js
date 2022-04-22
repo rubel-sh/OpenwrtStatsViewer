@@ -36,7 +36,7 @@ const Chart = (props) => {
 
         },
     }
-    options.plugins.title.text = "Total Download Timelaps: " + props.selectedClient.user;
+    options.plugins.title.text = "Total Usage Timelaps: " + props.selectedClient.user;
     const formatMB = perm => perm / 1048576;
     const labels = props.selectedClient.date.map(data => new Date(data * 1000).toLocaleString());
     const tDownData = props.selectedClient.totaldownloads.map(data => parseInt(formatMB(data)));

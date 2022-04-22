@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Navbar, NavbarBrand, Nav, NavItem, NavbarToggler, Collapse, NavbarText } from "reactstrap";
 import { NavLink } from 'react-router-dom'
 import WholeUsage from './wholeUsage'
-import TotalUsageSliderSelector from './TotalUsageSliderSelector'
+import SliderDateSelector from './SliderDateSelector'
 class Navigation extends Component {
   constructor(props) {
     super(props);
@@ -39,7 +39,7 @@ class Navigation extends Component {
                   <NavLink exact to="/OpenwrtStatsViewer/clientlists" className="nav-link">Client Lists</NavLink>
                 </NavItem>
                 <NavItem>
-                  <TotalUsageSliderSelector />
+                  <SliderDateSelector />
                 </NavItem>
               </Nav>
 

@@ -1,41 +1,58 @@
 import React, { Component } from 'react';
 import { Button, Slider, Stack } from '@mui/material';
+import { LoadingButton } from '@mui/lab'
 import { Send, ArrowCircleUp, Downloading } from '@mui/icons-material';
-import axios from 'axios';
+import { connect } from 'react-redux';
+import { fetchSlider } from '../../redux/actionCreators'
+import { styled } from '@mui/material/styles';
+import { cyan } from '@mui/material/colors';
 
-class TotalUsageSliderSelector extends Component {
-    constructor() {
-        super();
+const mapStateToProps = props => {
+    return {
+        sliderState: props.sliderSelectorState
+    }
+}
+const mapDispatchToProps = dispatch => {
+    return {
+        fetchSlider: (stateValue) => dispatch(fetchSlider(stateValue))
+    }
+}
+class SliderDateSelector extends Component {
+    constructor(props) {
+        super(props);
         this.state = {
-            sliderValue: 7
+            sliderValue: 1
         }
         this.onSliderChangeHandler = this.onSliderChangeHandler.bind(this);
         this.increaseDaysHandler = this.increaseDaysHandler.bind(this);
         this.decreaseDaysHandler = this.decreaseDaysHandler.bind(this);
-        this.sendTableJSON = this.sendTableJSON.bind(this);
+        // this.onSubmitHandler = this.onSubmitHandler.bind(this);
     }
     onSliderChangeHandler = e => {
         return this.setState({
             sliderValue: Math.round(e.target.value)
         })
     }
-    increaseDaysHandler = e => {
+    increaseDaysHandler = () => {
         return this.setState({
             sliderValue: this.state.sliderValue + 1
         })
     }
-    decreaseDaysHandler = e => {
+    decreaseDaysHandler = () => {
         return this.setState({
             sliderValue: this.state.sliderValue - 1
         })
     }
-    // POST request from the values of slider
-    sendTableJSON = () => {
-        const currentEPOCH = Math.floor(Date.now() / 1000);
-        const fromEPOCH = currentEPOCH - (86400 * this.state.sliderValue);
-        console.log(this.state.sliderValue + ' day before current EPOCH: ', fromEPOCH);
-        axios.post('https://node.rexopenwrt.repl.co/output/graphdata', { "fromdate": fromEPOCH })
-            .then(response => console.log(response.data));
+    onSubmitHandler = (e) => {
+        this.props.fetchSlider(this.state.sliderValue);
+        this.setState({
+            ...this.state
+        })
+        e.preventDefault();
+    }
+
+    componentDidMount() {
+
     }
     render() {
         const myStyles = {
@@ -45,8 +62,16 @@ class TotalUsageSliderSelector extends Component {
                 cursor: 'pointer'
             }
         }
+        const ColorButton = styled(LoadingButton)(({ theme }) => ({
+            color: theme.palette.getContrastText(cyan[500]),
+            backgroundColor: '#00a152',
+            '&:hover': {
+                backgroundColor: '#6fbf73',
+            },
+        }));
         return (
             <div style={myStyles}>
+
                 <Stack
                     direction={{ xs: 'column', sm: 'row' }}
                     spacing={{ xs: 0.5, sm: 0.5, md: 0.5 }}
@@ -94,12 +119,15 @@ class TotalUsageSliderSelector extends Component {
                             />
                         </Button>
                     </Stack>
-                    <Button
-                        onClick={this.sendTableJSON}
+                    <ColorButton
+                        endIcon={<Send />}
+                        loading={this.props.sliderState.state[0] === "default slider state" ? false : this.props.sliderState.isLoading}
+                        loadingPosition="end"
                         variant="contained"
-                        endIcon={<Send />}>
+                        onClick={this.onSubmitHandler}
+                    >
                         {this.state.sliderValue} Days
-                    </Button>
+                    </ColorButton>
                 </Stack>
             </div>
         );
@@ -108,4 +136,4 @@ class TotalUsageSliderSelector extends Component {
 }
 
 
-export default TotalUsageSliderSelector;
+export default connect(mapStateToProps, mapDispatchToProps)(SliderDateSelector);

@@ -1,14 +1,20 @@
 import React, { Component } from 'react'
-import graphData from './graphdata.json'
 import { Container } from '@mui/material'
 import Clients from './Clients'
 import ModalGraph from './Modal/ModalGraph'
+import { connect } from 'react-redux';
+import Loading from '../Loading'
+import PleaseSelectRouter from './Modal/PleaseSelectRouter';
 
+const mapStateToProps = props => {
+    return {
+        sliderState: props.sliderSelectorState
+    }
+}
 class Routers extends Component {
     constructor() {
         super();
         this.state = {
-            graphData: graphData,
             selectedRouter: {},
             selectedClient: {},
             modalOpen: false
@@ -34,50 +40,75 @@ class Routers extends Component {
         this.setState({ modalOpen: !this.state.modalOpen })
     ]
 
+    clearRouterState = () => {
+        console.log('vai clear hoise');
+        this.setState({
+            ...this.state,
+            selectedRouter: {},
+            selectedClient: {},
+            modalOpen: false
+        })
+    }
+
+
     render() {
-        // Returns Routers list
-        const totalRouters = this.state.graphData.map((router, index) => {
-            const totalDownload = [];
-            router.users.map(user => {
-                totalDownload.push(user.totaldownloads);
-            })
+        console.log(this.state);
+        if (this.props.sliderState.isLoading) {
 
             return (
-                <div
-                    className='router_child'
-                    key={index}
-                    onClick={() => {
-                        this.selectRouterHandler(router)
-                    }}
-                >
-                    {router.router}
+                < div onLoad={this.clearRouterState} className='totalUsage_parent_loading' >
+                    <Loading />
                 </div >
             )
-        });
-        return (
-            <Container>
-                {/* Render Routers */}
-                < div >
-                    <div className='router_parent' >
-                        {totalRouters}
-                    </div>
-                </div >
-                {/* Render Clients */}
-                < div >
-                    {Object.keys(this.state.selectedRouter).length !== 0 ? <Clients selectedRouter={this.state.selectedRouter} fetchSelectedClient={this.selectedClientHandler.bind(this)} /> : <p>Please Select Router</p>}
-                </div >
-                {/* Render Graph ? */}
-                < ModalGraph
-                    selectedClient={this.state.selectedClient}
-                    toggleModalHandler={this.toggleModalHandler.bind(this)}
-                    modalOpen={this.state.modalOpen}
-                />
-            </Container >
 
+        }
+        else {
+            // Returns Routers list
+            const totalRouters = this.props.sliderState.state.map((router, index) => {
+                const totalDownload = [];
+                router.users.map(user => totalDownload.push(user.totaldownloads))
+                return (
+                    <div
+                        className='router_child'
+                        key={index}
+                        onClick={() => {
+                            this.selectRouterHandler(router)
+                        }}
+                    >
+                        {router.router}
+                    </div >
+                )
+            });
+            return (
+                <Container>
+                    {/* Render Routers */}
+                    < div >
+                        <div className='router_parent' >
+                            {totalRouters}
+                        </div>
+                    </div >
+                    {/* Render Clients */}
+                    < div >
+                        {Object.keys(this.state.selectedRouter).length !== 0 ?
+                            <Clients
+                                selectedRouter={this.state.selectedRouter}
+                                fetchSelectedClient={this.selectedClientHandler.bind(this)}
+                            /> :
+                            <PleaseSelectRouter />
+                        }
+                    </div >
+                    {/* Render Graph ? */}
+                    < ModalGraph
+                        selectedClient={this.state.selectedClient}
+                        toggleModalHandler={this.toggleModalHandler.bind(this)}
+                        modalOpen={this.state.modalOpen}
+                    />
+                </Container >
+            )
+        }
 
-        )
     }
 
 }
 
-export default Routers
+export default connect(mapStateToProps)(Routers)

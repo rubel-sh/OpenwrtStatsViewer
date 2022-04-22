@@ -1,6 +1,6 @@
 import React from 'react'
 import { formatBytes } from '../../../customMethods/customMethods'
-import { Send, ArrowCircleUp, Downloading } from '@mui/icons-material';
+import { ArrowCircleUp, Downloading } from '@mui/icons-material';
 
 const Clients = (props) => {
     // Get Users list
@@ -21,22 +21,31 @@ const Clients = (props) => {
                 onClick={() => props.fetchSelectedClient(userr)}
             >
                 <div className='rc_username '>{userr.user}</div>
+                <div className='rc_usermac '>{userr.macAdderess}</div>
                 <div className='rc_data_container '>
                     <div className='rc_down'>
-                        <Downloading />
+                        <Downloading color='warning' />
                         {formatBytes(totalDownload)}
                     </div>
                     <div className='rc_up'>
-                        <ArrowCircleUp />
+                        <ArrowCircleUp color='success' />
                         {formatBytes(totalUpload)}
                     </div>
                 </div>
-
             </li >
         )
     })
     return (
-        <ul style={{ perspective: "1000px" }} className="rc_parent">{user}</ul>
+        <div>
+            <h3 className='rc'
+            >{props.selectedRouter.router} has been selected</h3>
+            <ul
+                style={{ perspective: "1000px" }}
+                className="rc_parent">
+                {user}
+            </ul>
+        </div >
+
     )
 }
 

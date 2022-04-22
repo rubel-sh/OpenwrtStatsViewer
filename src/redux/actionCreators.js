@@ -1,7 +1,6 @@
 import * as actionTypes from './actionTypes'
 import axios from 'axios'
-import { findDeviceObject } from '../customMethods/customMethods'
-
+import { GRAPHDATA_API } from '../jsonAPI/jsonAPI'
 // TotalUsage.js Creator
 export const usageLoading = () => ({
     type: actionTypes.USAGE_LOADING,
@@ -20,20 +19,28 @@ export const fetchUsage = () => dispatch => {
         .catch(error => console.log(error))
 }
 
-// Speed.js Creator
-export const speedLoading = () => ({
-    type: actionTypes.SPEED_USAGE_LOADING,
+// SliderDateSelector.js Creator
+export const sliderLoading = () => ({
+    type: actionTypes.SLIDER_SELECTOR_LOADING,
 })
 
-export const speedLoaded = stateJSON => ({
-    type: actionTypes.SPEED_USAGE_LOADED,
+export const sliderLoaded = stateJSON => ({
+    type: actionTypes.SLIDER_SELECTOR_LOADED,
     payload: stateJSON
 })
 
-export const fetchSpeed = () => dispatch => {
-    dispatch(speedLoading());
-    axios.get('https://py.rexopenwrt.repl.co/rawdata')
+export const fetchSlider = (sliderValue = 1) => dispatch => {
+    // Loading Dispatch
+    dispatch(sliderLoading());
+    // Async Dispatch
+    const currentEPOCH = Math.floor(Date.now() / 1000);
+    // in perm Slider value must be inserted after 86400
+    const fromEPOCH = currentEPOCH - (86400 * sliderValue);
+    axios.post(GRAPHDATA_API, { "fromdate": fromEPOCH })
         .then(response => response.data)
-        .then(speedUsageState => dispatch(speedLoaded(findDeviceObject(speedUsageState, "Desktop"))))
+        .then(sliderSelectorState => dispatch(sliderLoaded(sliderSelectorState)))
         .catch(error => console.log(error))
+
 }
+
+

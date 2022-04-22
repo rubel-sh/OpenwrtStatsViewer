@@ -22,23 +22,23 @@ const totalUsageReducer = (totalUsageState = { isLoading: true, state: [] }, act
     }
 }
 
-const speedUsageReducer = (speedUsageState = { isLoading: true, state: ['default'] }, action) => {
+const sliderSelectorReducer = (sliderSelectorState = { isLoading: true, state: ['default slider state'] }, action) => {
     switch (action.type) {
-        case actionTypes.SPEED_USAGE_LOADING:
+        case actionTypes.SLIDER_SELECTOR_LOADING:
             return {
-                ...speedUsageState,
+                ...sliderSelectorState,
                 isLoading: true,
                 state: []
             }
-        case actionTypes.SPEED_USAGE_LOADED:
+        case actionTypes.SLIDER_SELECTOR_LOADED:
             return {
-                ...speedUsageState,
+                ...sliderSelectorState,
                 isLoading: false,
                 state: action.payload
             }
 
         default:
-            return speedUsageState
+            return sliderSelectorState
     }
 }
-export const Reducer = combineReducers({ totalUsageState: totalUsageReducer, speedUsageState: speedUsageReducer })
+export const Reducer = combineReducers({ totalUsageState: totalUsageReducer, sliderSelectorState: sliderSelectorReducer })
