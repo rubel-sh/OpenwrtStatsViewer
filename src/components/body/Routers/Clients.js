@@ -1,7 +1,13 @@
 import React from 'react'
 import { formatBytes } from '../../../customMethods/customMethods'
 import { ArrowCircleUp, Downloading } from '@mui/icons-material';
+import { connect } from 'react-redux';
 
+const mapStateToProps = (props) => {
+    return {
+        selectedDate: props.sliderSelectorState.dateSelected
+    }
+}
 const Clients = (props) => {
     // Get Users list
     const user = props.selectedRouter.users.map((userr, index) => {
@@ -37,8 +43,9 @@ const Clients = (props) => {
     })
     return (
         <div>
-            <h3 className='rc'
-            >{props.selectedRouter.router} has been selected</h3>
+            <h5 className='rc'
+            >{props.selectedRouter.router}: {props.selectedDate} days data. Please re-select router to update clients usage.
+            </h5>
             <ul
                 style={{ perspective: "1000px" }}
                 className="rc_parent">
@@ -49,4 +56,4 @@ const Clients = (props) => {
     )
 }
 
-export default Clients
+export default connect(mapStateToProps)(Clients)

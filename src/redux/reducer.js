@@ -22,19 +22,21 @@ const totalUsageReducer = (totalUsageState = { isLoading: true, state: [] }, act
     }
 }
 
-const sliderSelectorReducer = (sliderSelectorState = { isLoading: true, state: ['default slider state'] }, action) => {
+const sliderSelectorReducer = (sliderSelectorState = { isLoading: true, state: ['default slider state'], dateSelected: null }, action) => {
     switch (action.type) {
         case actionTypes.SLIDER_SELECTOR_LOADING:
             return {
                 ...sliderSelectorState,
                 isLoading: true,
-                state: []
+                state: [],
+                dateSelected: null
             }
         case actionTypes.SLIDER_SELECTOR_LOADED:
             return {
                 ...sliderSelectorState,
                 isLoading: false,
-                state: action.payload
+                state: action.payload,
+                dateSelected: action.datePayload
             }
 
         default:

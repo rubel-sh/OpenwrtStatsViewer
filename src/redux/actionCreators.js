@@ -24,12 +24,13 @@ export const sliderLoading = () => ({
     type: actionTypes.SLIDER_SELECTOR_LOADING,
 })
 
-export const sliderLoaded = stateJSON => ({
+export const sliderLoaded = (stateJSON, sliderDate) => ({
     type: actionTypes.SLIDER_SELECTOR_LOADED,
-    payload: stateJSON
+    payload: stateJSON,
+    datePayload: sliderDate
 })
 
-export const fetchSlider = (sliderValue = 1) => dispatch => {
+export const fetchSlider = (sliderValue) => dispatch => {
     // Loading Dispatch
     dispatch(sliderLoading());
     // Async Dispatch
@@ -38,7 +39,7 @@ export const fetchSlider = (sliderValue = 1) => dispatch => {
     const fromEPOCH = currentEPOCH - (86400 * sliderValue);
     axios.post(GRAPHDATA_API, { "fromdate": fromEPOCH })
         .then(response => response.data)
-        .then(sliderSelectorState => dispatch(sliderLoaded(sliderSelectorState)))
+        .then(sliderSelectorState => dispatch(sliderLoaded(sliderSelectorState, sliderValue)))
         .catch(error => console.log(error))
 
 }
