@@ -3,6 +3,7 @@ import { Navbar, NavbarBrand, Nav, NavItem, NavbarToggler, Collapse, NavbarText 
 import { NavLink } from 'react-router-dom'
 import WholeUsage from './wholeUsage'
 import SliderDateSelector from './SliderDateSelector'
+
 class Navigation extends Component {
   constructor(props) {
     super(props);
@@ -44,6 +45,9 @@ class Navigation extends Component {
               </Nav>
 
             </Collapse>
+            <NavbarText>
+              <WholeUsage />
+            </NavbarText>
             <NavbarText>
               <WholeUsage />
             </NavbarText>

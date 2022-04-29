@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import { fetchSlider } from '../../redux/actionCreators'
 import { styled } from '@mui/material/styles';
 import { cyan } from '@mui/material/colors';
+import { NavLink } from 'react-router-dom';
 
 const mapStateToProps = props => {
     return {
@@ -126,7 +127,8 @@ class SliderDateSelector extends Component {
                         variant="contained"
                         onClick={this.onSubmitHandler}
                     >
-                        {this.state.sliderValue} Days
+                        <NavLink exact to="/OpenwrtStatsViewer/router" className="nav-link">{this.state.sliderValue} Days</NavLink>
+
                     </ColorButton>
                 </Stack>
             </div>
