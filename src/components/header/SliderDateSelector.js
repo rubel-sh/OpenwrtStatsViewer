@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import { fetchSlider } from '../../redux/actionCreators'
 import { styled } from '@mui/material/styles';
 import { cyan } from '@mui/material/colors';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const mapStateToProps = props => {
     return {
@@ -120,18 +120,35 @@ class SliderDateSelector extends Component {
                             />
                         </Button>
                     </Stack>
+
                     <ColorButton
                         endIcon={<Send />}
                         loading={this.props.sliderState.state[0] === "default slider state" ? false : this.props.sliderState.isLoading}
                         loadingPosition="end"
                         variant="contained"
                         onClick={this.onSubmitHandler}
+                        style={{
+                            fontWeight: '600',
+                            color: 'white'
+                        }}
                     >
-                        <NavLink exact to="/OpenwrtStatsViewer/router" className="nav-link">{this.state.sliderValue} Days</NavLink>
+                        {this.state.sliderValue} Days
+                        <Link
+                            exact
+                            to="/OpenwrtStatsViewer/router"
+                            className="nav-link"
+                            style={{
+                                position: 'absolute',
+                                width: '100%',
+                                height: '100%'
+                            }}
+                        >
 
+                        </Link>
                     </ColorButton>
+
                 </Stack>
-            </div>
+            </div >
         );
     }
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter } from 'react-router-dom'
+import { HashRouter } from 'react-router-dom'
 import MainComponent from "./components/MainComponent"
 import './css/App.css'
 import myStore from './redux/store'
@@ -9,9 +9,9 @@ function App() {
   return (
     <div className="App" >
       <Provider store={myStore}>
-        <BrowserRouter>
+        <HashRouter>
           <MainComponent />
-        </BrowserRouter>
+        </HashRouter>
       </Provider>
 
     </div>

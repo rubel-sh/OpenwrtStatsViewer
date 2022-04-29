@@ -48,9 +48,6 @@ class Navigation extends Component {
             <NavbarText>
               <WholeUsage />
             </NavbarText>
-            <NavbarText>
-              <WholeUsage />
-            </NavbarText>
             <NavbarToggler onClick={this.navToggle} />
           </div>
         </Navbar >
