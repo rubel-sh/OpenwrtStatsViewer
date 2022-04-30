@@ -53,13 +53,12 @@ class Routers extends Component {
 
     render() {
         if (this.props.sliderState.isLoading) {
-
+            console.log(Object.keys(this.state.selectedRouter).length);
             return (
                 < div onLoad={this.clearRouterState} className='totalUsage_parent_loading' >
                     <Loading />
                 </div >
             )
-
         }
         else {
             // Returns Routers list
@@ -96,7 +95,7 @@ class Routers extends Component {
                             <PleaseSelectRouter />
                         }
                     </div >
-                    {/* Render Graph ? */}
+                    {/* Render Graph */}
                     < ModalGraph
                         selectedClient={this.state.selectedClient}
                         toggleModalHandler={this.toggleModalHandler.bind(this)}

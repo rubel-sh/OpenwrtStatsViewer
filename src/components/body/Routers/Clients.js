@@ -30,11 +30,11 @@ const Clients = (props) => {
                 <div className='rc_usermac '>{userr.macAdderess}</div>
                 <div className='rc_data_container '>
                     <div className='rc_down'>
-                        <Downloading color='warning' />
+                        <Downloading color='warning' style={{ marginRight: '10px' }} />
                         {formatBytes(totalDownload)}
                     </div>
                     <div className='rc_up'>
-                        <ArrowCircleUp color='success' />
+                        <ArrowCircleUp color='success' style={{ marginRight: '10px' }} />
                         {formatBytes(totalUpload)}
                     </div>
                 </div>
