@@ -43,8 +43,8 @@ const Clients = (props) => {
     })
     return (
         <div>
-            <h5 className='rc'
-            >{props.selectedRouter.router}: {props.selectedDate} days data. Please re-select router to update clients usage.
+            <h5 className='rc'>
+                <strong>{props.selectedRouter.router}</strong> showing <strong>{props.selectedDate}</strong> days data.
             </h5>
             <ul
                 style={{ perspective: "1000px" }}

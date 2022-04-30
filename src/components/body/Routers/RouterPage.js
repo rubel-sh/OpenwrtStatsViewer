@@ -56,7 +56,7 @@ class Routers extends Component {
             return (
                 < div onLoad={this.clearRouterState} className='totalUsage_parent_loading' >
                     {Object.keys(this.state.selectedRouter).length === 0 ?
-                        <h2 style={{ fontFamily: 'Sen' }}>Please Select Date</h2>
+                        <h2 style={{ fontFamily: 'Sen' }}>Please Select Days</h2>
                         :
                         <div onLoad={this.clearRouterState()}>
                             <Loading onLoad={() => this.clearRouterState} />
