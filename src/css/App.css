@@ -125,6 +125,8 @@ canvus {
 
 .rc_container:hover {
   transition: transform 300ms;
+  box-shadow: 0 0 50px rgba(73, 189, 121, 0.781);
+
 }
 
 @keyframes dropdown {
