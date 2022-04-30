@@ -31,13 +31,13 @@ class Navigation extends Component {
             <Collapse navbar isOpen={this.state.isNavOpen}>
               <Nav className="mr-auto align-middle" navbar>
                 <NavItem>
-                  <NavLink exact to="/OpenwrtStatsViewer/" className="nav-link">Home</NavLink>
+                  <NavLink exact to="/" className="nav-link">Home</NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink exact to="/OpenwrtStatsViewer/router" className="nav-link">Router</NavLink>
+                  <NavLink exact to="/router" className="nav-link">Router</NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink exact to="/OpenwrtStatsViewer/clientlists" className="nav-link">Client Lists</NavLink>
+                  <NavLink exact to="/clientlists" className="nav-link">Client Lists</NavLink>
                 </NavItem>
                 <NavItem>
                   <SliderDateSelector />

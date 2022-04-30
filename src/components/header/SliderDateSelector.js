@@ -135,7 +135,7 @@ class SliderDateSelector extends Component {
                         {this.state.sliderValue} Days
                         <Link
                             exact="true"
-                            to="/OpenwrtStatsViewer/router"
+                            to="/router"
                             className="nav-link"
                             style={{
                                 position: 'absolute',

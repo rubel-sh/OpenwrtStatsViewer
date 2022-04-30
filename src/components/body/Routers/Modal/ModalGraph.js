@@ -4,8 +4,17 @@ import TotalUsageChart from './Charts/TotalUsageChart'
 import SpeedChart from './Charts/SpeedChart'
 
 const ModalGraph = (props) => {
+    const style = {
+        opacity: "0.95"
+    }
     return (
-        <Modal isOpen={props.modalOpen} fullscreen='xl' size="xl" keyboard={true} centered >
+        <Modal style={style}
+            isOpen={props.modalOpen}
+            fullscreen='xl'
+            size="xl"
+            centered
+            toggle={props.toggleModalHandler}
+        >
             <ModalBody>
                 <TotalUsageChart selectedClient={props.selectedClient} />
                 <SpeedChart selectedClient={props.selectedClient} />
