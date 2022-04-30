@@ -9,7 +9,8 @@ function App() {
   return (
     <div className="App" >
       <Provider store={myStore}>
-        <HashRouter>
+        <HashRouter
+        >
           <MainComponent />
         </HashRouter>
       </Provider>

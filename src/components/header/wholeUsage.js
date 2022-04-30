@@ -18,7 +18,12 @@ class WholeUsage extends Component {
 
         const TotalDown = formatBytes(this.state.data[0].totaldownloads);
         const TotalUp = formatBytes(this.state.data[0].totaluploads);
-        const style = { display: "flex", flexDirection: "column", span: { paddingRight: '10px' } };
+        const style = {
+            display: "flex",
+            flexDirection: "column",
+
+            span: { paddingRight: '10px' }
+        };
 
         return (
             <div style={style}>
