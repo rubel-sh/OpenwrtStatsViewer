@@ -53,10 +53,15 @@ class Routers extends Component {
 
     render() {
         if (this.props.sliderState.isLoading) {
-            console.log(Object.keys(this.state.selectedRouter).length);
             return (
                 < div onLoad={this.clearRouterState} className='totalUsage_parent_loading' >
-                    <Loading />
+                    {Object.keys(this.state.selectedRouter).length === 0 ?
+                        <h2 style={{ fontFamily: 'Sen' }}>Please Select Date</h2>
+                        :
+                        <div onLoad={this.clearRouterState()}>
+                            <Loading onLoad={() => this.clearRouterState} />
+                        </div>
+                    }
                 </div >
             )
         }

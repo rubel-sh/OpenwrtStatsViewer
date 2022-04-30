@@ -3,7 +3,7 @@ import React from 'react'
 const PleaseSelectRouter = () => {
     return (
         <div className='please_select_router_parent'>
-            <h2>Please Select Router</h2>
+            <h2 style={{ fontFamily: 'Sen' }}>Please Select Router</h2>
         </div>
     )
 }
