@@ -132,7 +132,7 @@ const Chart = (props) => {
             justifyContent: 'space-around',
             alignItems: 'center',
             width: '100%',
-
+            height: '70px'
         },
         p: {
             marginTop: '10px',
@@ -151,7 +151,7 @@ const Chart = (props) => {
             flexBasis: '20%',
             justifyContent: 'space-around',
             alignItems: 'center',
-            marginBottom: '15px'
+            marginBottom: '10px'
         },
         downUpText: {
             display: 'flex',
