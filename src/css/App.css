@@ -72,7 +72,7 @@ canvus {
   background-size: 200% auto;
   z-index: -9;
   opacity: 0.6;
-  animation: shine 2s linear infinite;
+  /* animation: shine 2s linear infinite; */
   color: rgb(19, 19, 19);
   margin-top: 20px;
   padding: 5px;

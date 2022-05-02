@@ -90,7 +90,12 @@ const SpeedChart = (props) => {
         </div>
     return (
         <div>
-            <h3 style={{ marginTop: '10px', fontWeight: '300', textAlign: 'center' }}>{props.selectedClient.user} in KBps</h3>
+            <h3 style={{
+                marginTop: '10px',
+                fontWeight: '300',
+                fontSize: '1.5rem',
+                textAlign: 'center'
+            }}>{props.selectedClient.user} in KBps</h3>
             <hr />
             <div className="canvus-container">
                 {userGraph}

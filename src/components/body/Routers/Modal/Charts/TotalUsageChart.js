@@ -8,9 +8,10 @@ import {
     BarElement,
     Title,
     Tooltip,
-    Legend
+    Legend,
+    ArcElement
 } from 'chart.js';
-import { Line, Bar } from 'react-chartjs-2';
+import { Line, Bar, Pie } from 'react-chartjs-2';
 
 const Chart = (props) => {
     ChartJS.register(
@@ -22,13 +23,18 @@ const Chart = (props) => {
         Title,
         Tooltip,
         Legend,
-    );
+        ArcElement
+    )
     const options = {
         padding: false,
         responsive: true,
         interaction: {
             mode: 'index',
             intersect: false,
+        },
+        animation: {
+            duration: 250 * 1.5,
+            easing: 'linear'
         },
         plugins: {
             legend: {
@@ -41,14 +47,28 @@ const Chart = (props) => {
         },
 
     }
-    options.plugins.title.text = "Total Usage Timelaps: " + props.selectedClient.user;
-    const formatMB = perm => perm / 1048576;
-    const labels = props.selectedClient.date.map(data => new Date(data * 1000).toLocaleString());
-    const tDownData = props.selectedClient.totaldownloads.map(data => parseInt(formatMB(data)));
-    const tUpData = props.selectedClient.totaluploads.map(data => parseInt(formatMB(data)));
+    options.plugins.title.text = "Total Usage Timelaps: " + props.selectedClient.user
+    const formatMB = perm => perm / 1048576
+    const labels = props.selectedClient.date.map(data => new Date(data * 1000).toLocaleString())
+    const tDownData = props.selectedClient.totaldownloads.map(data => parseInt(formatMB(data)))
+    const tUpData = props.selectedClient.totaluploads.map(data => parseInt(formatMB(data)))
+    // Calculating Total Usage for Doughnut 
+    let tDownloadClient = null
+    let tUploadClient = null
+    props.selectedClient.totaldownloads.map((down) => {
+        tDownloadClient = tDownloadClient + parseFloat(down)
+    })
+    props.selectedClient.totaluploads.map((up) => {
+        tUploadClient = tUploadClient + parseInt(up)
+    })
+    tDownloadClient = parseInt(formatMB(tDownloadClient))
+    tUploadClient = parseInt(formatMB(tUploadClient))
+    console.log(tDownloadClient);
+    // Calculating Total Usage for Doughnut ends
     const data = {
         labels: labels,
         datasets: [
+
             {
                 label: 'Download',
                 data: tDownData,
@@ -74,7 +94,32 @@ const Chart = (props) => {
 
             },
         ],
-    };
+    }
+    const dataForPie = {
+        datasets: [
+            {
+                label: 'Donloads in MB',
+                data: [tDownloadClient, tUploadClient],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)',
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)',
+                ],
+                borderWidth: 1,
+            },
+        ],
+    }
     const userGraph =
         <div className="router1">
             <Line
@@ -90,9 +135,64 @@ const Chart = (props) => {
                 data={data}
             />
         </div>
+    const styles = {
+        totalUsageHeader: {
+            display: 'flex',
+            justifyContent: 'space-around',
+            alignItems: 'center',
+            width: '100%',
+        },
+        p: {
+            marginTop: '10px',
+            textAlign: 'center',
+            fontWeight: '300',
+            fontSize: '1.5rem',
+        },
+        pie: {
+            display: 'inline-block',
+            maxWidth: '100px',
+            maxHeight: '100px'
+
+        },
+        chartAndText: {
+            display: 'flex',
+            flexBasis: '20%',
+            justifyContent: 'space-around',
+            alignItems: 'center'
+        },
+        downUpText: {
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'flex-around',
+            alignItems: 'center',
+            fontSize: '0.7rem',
+            lineHeight: '1.35rem'
+        }
+
+    }
     return (
         <div>
-            <h3 style={{ marginTop: '10px', fontWeight: '300', textAlign: 'center' }}>{props.selectedClient.user} in Total Usage</h3>
+            <div style={styles.totalUsageHeader}>
+                <p style={styles.p}>
+                    {props.selectedClient.user} in Total Usage
+                </p>
+                <div style={styles.chartAndText}>
+                    <Pie
+                        style={styles.pie}
+                        data={dataForPie}
+                        options={{
+                            segmentShowStroke: false,
+                            animateScale: true
+                        }}
+                    />
+                    <div style={styles.downUpText}>
+                        <strong>Downloads: {tDownloadClient} MB</strong>
+                        <strong>Uploads  : {tUploadClient} MB</strong>
+                    </div>
+                </div>
+
+            </div>
+
             <hr />
             <div className="canvus-container">
                 {userGraph}
