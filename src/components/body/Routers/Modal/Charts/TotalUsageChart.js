@@ -63,7 +63,6 @@ const Chart = (props) => {
     })
     tDownloadClient = parseInt(formatMB(tDownloadClient))
     tUploadClient = parseInt(formatMB(tUploadClient))
-    console.log(tDownloadClient);
     // Calculating Total Usage for Doughnut ends
     const data = {
         labels: labels,
