@@ -26,6 +26,10 @@ const Chart = (props) => {
     const options = {
         padding: false,
         responsive: true,
+        interaction: {
+            mode: 'index',
+            intersect: false,
+        },
         plugins: {
             legend: {
                 position: 'top',
@@ -35,6 +39,7 @@ const Chart = (props) => {
             },
 
         },
+
     }
     options.plugins.title.text = "Total Usage Timelaps: " + props.selectedClient.user;
     const formatMB = perm => perm / 1048576;
@@ -48,18 +53,24 @@ const Chart = (props) => {
                 label: 'Download',
                 data: tDownData,
                 lineTension: 0.2,
-                backgroundColor: 'rgba(21, 29, 59, 1)',
-                borderColor: '#00C897',
-                // borderWidth: 2,
+                borderColor: "#3cba9f",
+                pointRadius: 0,
+                pointHoverRadius: 5,
+                backgroundColor: '#3cba9f',
+                fill: false,
+                borderWidth: 1.5
 
             },
             {
                 label: 'Upload',
                 data: tUpData,
                 lineTension: 0.2,
-                backgroundColor: 'rgba(21, 29, 59, 1)',
-                borderColor: '#FFC300',
-                // borderWidth: 2,
+                borderColor: "#8e5ea2",
+                pointRadius: 0,
+                pointHoverRadius: 5,
+                backgroundColor: '#8e5ea2',
+                fill: false,
+                borderWidth: 1.5
 
             },
         ],

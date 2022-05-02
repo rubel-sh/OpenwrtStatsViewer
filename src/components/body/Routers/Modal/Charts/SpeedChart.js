@@ -26,6 +26,10 @@ const SpeedChart = (props) => {
     const options = {
         padding: true,
         responsive: true,
+        interaction: {
+            mode: 'index',
+            intersect: false,
+        },
         plugins: {
             legend: {
                 position: 'top',
@@ -47,18 +51,24 @@ const SpeedChart = (props) => {
                 label: 'Download',
                 data: tDownData,
                 lineTension: 0.2,
-                backgroundColor: '#151D3B',
-                borderColor: '#00C897',
-                // borderWidth: 2,
+                borderColor: "#398AB9",
+                pointRadius: 0,
+                pointHoverRadius: 5,
+                backgroundColor: '#398AB9',
+                fill: false,
+                borderWidth: 1.5
 
             },
             {
                 label: 'Upload',
                 data: tUpData,
                 lineTension: 0.2,
-                backgroundColor: '#151D3B',
-                borderColor: '#FFC300',
-                // borderWidth: 2,
+                borderColor: "#F0A500",
+                pointRadius: 0,
+                pointHoverRadius: 5,
+                backgroundColor: '#F0A500',
+                fill: false,
+                borderWidth: 1.5
 
             },
         ],
