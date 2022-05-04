@@ -106,9 +106,9 @@ canvus {
   font-weight: bold;
   color: rgb(32, 32, 32);
   cursor: pointer;
-  background-color: rgba(255, 255, 255, 0.808);
+  background-color: rgba(255, 255, 255, 0.6);
+  /* backdrop-filter: blur(5px); */
   /* background-image: linear-gradient(132deg, #86b648 0%, #16A085 100%); */
-  opacity: 0.9;
   border-radius: 2rem;
   animation: dropdown .5s ease forwards;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
@@ -118,7 +118,7 @@ canvus {
 
 .rc_container:hover {
   transition: all .3s ease;
-  background-color: rgb(255, 255, 255);
+  background-color: rgba(255, 255, 255, 0.750);
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   /* background-image: linear-gradient(132deg, #37c4b8 0%, #059477 100%); */
 
@@ -142,7 +142,6 @@ canvus {
   100% {
     transform: scale(1);
     opacity: 1;
-    background-color: rgba(255, 255, 255, 0.808);
     visibility: visible;
   }
 }

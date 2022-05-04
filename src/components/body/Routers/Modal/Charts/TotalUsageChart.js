@@ -11,7 +11,7 @@ import {
     Legend,
     ArcElement
 } from 'chart.js';
-import { Line, Bar, Pie } from 'react-chartjs-2';
+import { Line, Pie } from 'react-chartjs-2';
 
 const Chart = (props) => {
     ChartJS.register(
@@ -119,12 +119,12 @@ const Chart = (props) => {
                 options={options}
                 data={data}
             />
-            <Bar
+            {/* <Bar
                 width={document.documentElement.clientWidth}
                 height={400}
                 options={options}
                 data={data}
-            />
+            /> */}
         </div>
     const styles = {
         totalUsageHeader: {

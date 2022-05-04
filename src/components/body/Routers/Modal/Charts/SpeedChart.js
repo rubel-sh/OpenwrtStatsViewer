@@ -10,7 +10,7 @@ import {
     Tooltip,
     Legend,
 } from 'chart.js';
-import { Line, Bar } from 'react-chartjs-2';
+import { Line } from 'react-chartjs-2';
 
 const SpeedChart = (props) => {
     ChartJS.register(
@@ -81,12 +81,12 @@ const SpeedChart = (props) => {
                 options={options}
                 data={data}
             />
-            <Bar
+            {/* <Bar
                 width={document.documentElement.clientWidth}
                 height={400}
                 options={options}
                 data={data}
-            />
+            /> */}
         </div>
     return (
         <div>
