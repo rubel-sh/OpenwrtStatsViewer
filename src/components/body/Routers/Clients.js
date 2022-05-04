@@ -2,7 +2,6 @@ import React from 'react'
 import { formatBytes } from '../../../customMethods/customMethods'
 import { ArrowCircleUp, Downloading } from '@mui/icons-material';
 import { connect } from 'react-redux';
-
 const mapStateToProps = (props) => {
     return {
         selectedDate: props.sliderSelectorState.dateSelected
@@ -27,14 +26,14 @@ const Clients = (props) => {
                 onClick={() => props.fetchSelectedClient(userr)}
             >
                 <div className='rc_username '>{userr.user}</div>
-                <div className='rc_usermac '>{userr.macAdderess}</div>
+                <div className='rc_usermac '>{(userr.macAdderess).toUpperCase()}</div>
                 <div className='rc_data_container '>
                     <div className='rc_down'>
                         <Downloading style={{ marginRight: '6px', color: '#F24A72' }} />
                         {formatBytes(totalDownload)}
                     </div>
                     <div className='rc_up'>
-                        <ArrowCircleUp style={{ marginRight: '6px', color: '#383838' }} />
+                        <ArrowCircleUp style={{ marginRight: '6px', color: '#1e77b3' }} />
                         {formatBytes(totalUpload)}
                     </div>
                 </div>
@@ -52,7 +51,6 @@ const Clients = (props) => {
                 {user}
             </ul>
         </div >
-
     )
 }
 

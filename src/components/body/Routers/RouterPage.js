@@ -69,6 +69,7 @@ class Routers extends Component {
             // Returns Routers list
             const totalRouters = this.props.sliderState.state.map((router, index) => {
                 const totalDownload = [];
+                console.log(this.state.selectedRouter);
                 router.users.map(user => totalDownload.push(user.totaldownloads))
                 return (
                     <div

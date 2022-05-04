@@ -67,31 +67,18 @@ canvus {
 
 /* Clients.js */
 .rc {
-  overflow: hidden;
-  background: linear-gradient(to right, #fff 20%, #fff 40%, #8BC6EC 50%, #8BC6EC 55%, #fff 70%, #fff 100%);
   background-size: 200% auto;
-  z-index: -9;
-  opacity: 0.6;
-  /* animation: shine 2s linear infinite; */
   color: rgb(19, 19, 19);
   margin-top: 20px;
-  padding: 5px;
-  background-color: #fff;
-  border: 10px solid transparent;
-  position: relative;
+  padding: 15px 0;
+  background-color: rgb(255, 255, 255);
   font-family: 'Sen', Tahoma, Geneva, Verdana, sans-serif;
   font-weight: 700;
   font-size: 20px;
+  opacity: 0.8;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
 }
 
-.rc::before {
-  position: absolute;
-  content: '';
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
 
 @keyframes shine {
   to {
@@ -117,22 +104,23 @@ canvus {
   font-family: 'Sen', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 1rem;
   font-weight: bold;
-  color: rgb(255, 255, 255);
+  color: rgb(32, 32, 32);
   cursor: pointer;
-  background-color: #49bd79;
-  background-image: linear-gradient(132deg, #86b648 0%, #16A085 100%);
+  background-color: rgba(255, 255, 255, 0.808);
+  /* background-image: linear-gradient(132deg, #86b648 0%, #16A085 100%); */
   opacity: 0.9;
   border-radius: 2rem;
-  animation: dropdown .5s ease-in;
-  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
-
+  animation: dropdown .5s ease forwards;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  transition: all .3s ease;
+  visibility: hidden;
 }
 
 .rc_container:hover {
-  transition: transform 200ms cubic-bezier(.29, -0.46, .72, .91);
-  box-shadow: 0 0 20px rgba(73, 189, 121, 0.781);
-  background-image: linear-gradient(132deg, #37c4b8 0%, #059477 100%);
-  transform: scale(1.01);
+  transition: all .3s ease;
+  background-color: rgb(255, 255, 255);
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  /* background-image: linear-gradient(132deg, #37c4b8 0%, #059477 100%); */
 
 }
 
@@ -141,24 +129,30 @@ canvus {
   0% {
     transform: scale(0.5);
     opacity: 0;
-    background-color: #3eb49e;
+    background-color: #f1f1f1;
+    visibility: visible;
   }
 
-  80% {
+  40% {
     transform: scale(1.1);
     opacity: 1;
-    background-color: #1e695b;
+    background-color: #3aa6ee;
   }
 
   100% {
     transform: scale(1);
     opacity: 1;
-    background-color: rgb(31, 30, 30);
+    background-color: rgba(255, 255, 255, 0.808);
+    visibility: visible;
   }
 }
 
-.rc_username {}
-
+.rc_username {
+ 
+}
+.rc_usermac{
+  opacity: 0.7;
+}
 .rc_data_container {
   width: 100%;
   display: flex;
