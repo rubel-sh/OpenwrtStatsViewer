@@ -1,0 +1,9 @@
+.uptimeParent{
+    float: right;
+    color: black;
+   background-color: rgb(228, 250, 255);
+   padding: 15px 20px;
+   font-family:'Sen',Arial, Helvetica, sans-serif ;
+   font-size: 1.115rem;
+   font-weight: 600;
+}
