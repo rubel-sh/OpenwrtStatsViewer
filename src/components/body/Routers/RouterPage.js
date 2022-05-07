@@ -19,6 +19,7 @@ class Routers extends Component {
             selectedClient: {},
             modalOpen: false
         }
+        
     }
 
     selectRouterHandler(router) {

@@ -43,7 +43,6 @@ export const fetchSlider = (sliderValue) => dispatch => {
         .then(response => response.data)
         .then(sliderSelectorState => dispatch(sliderLoaded(sliderSelectorState, sliderValue)))
         .catch(error => console.log(error))
-
 }
 
 

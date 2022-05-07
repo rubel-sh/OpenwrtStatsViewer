@@ -8,7 +8,8 @@ const ModalGraph = (props) => {
         opacity: "0.95"
     }
     return (
-        <Modal style={style}
+        <Modal 
+            style={style}
             isOpen={props.modalOpen}
             fullscreen='xl'
             size="xl"

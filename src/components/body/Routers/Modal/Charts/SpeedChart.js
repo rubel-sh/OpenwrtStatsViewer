@@ -11,6 +11,7 @@ import {
     Legend,
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
+import moment from 'moment';
 
 const SpeedChart = (props) => {
     ChartJS.register(
@@ -41,7 +42,7 @@ const SpeedChart = (props) => {
     }
     options.plugins.title.text = "Client Speeds in KBps: " + props.selectedClient.user;
     const formatMB = perm => perm / 1024;
-    const labels = props.selectedClient.date.map(data => new Date(data * 1000).toLocaleString());
+    const labels = props.selectedClient.date.map(data =>moment(new Date(data * 1000).toLocaleString()).format('D/MM [-] LT'));
     const tDownData = props.selectedClient.downData.map(data => parseInt(formatMB(data)));
     const tUpData = props.selectedClient.upData.map(data => parseInt(formatMB(data)));
     const data = {

@@ -12,6 +12,7 @@ import {
     ArcElement
 } from 'chart.js';
 import { Line, Pie } from 'react-chartjs-2';
+import moment from 'moment';
 
 const Chart = (props) => {
     ChartJS.register(
@@ -49,7 +50,8 @@ const Chart = (props) => {
     }
     options.plugins.title.text = "Total Usage Timelaps: " + props.selectedClient.user
     const formatMB = perm => perm / 1048576
-    const labels = props.selectedClient.date.map(data => new Date(data * 1000).toLocaleString())
+    // Using momentJS
+    const labels = props.selectedClient.date.map(data => moment(new Date(data * 1000).toLocaleString()).format('D/MM [-] LT'))
     const tDownData = props.selectedClient.totaldownloads.map(data => parseInt(formatMB(data)))
     const tUpData = props.selectedClient.totaluploads.map(data => parseInt(formatMB(data)))
     // Calculating Total Usage for Doughnut 
@@ -100,12 +102,12 @@ const Chart = (props) => {
                 label: 'Donloads in MB',
                 data: [tDownloadClient, tUploadClient],
                 backgroundColor: [
-                    "#069A8E",
-                    "#A1E3D8"
+                    "#3cba9f",
+                    "#8e5ea2"
                 ],
                 borderColor: [
-                    "#069A8E",
-                    "#A1E3D8"
+                    "#3cba9f",
+                    "#8e5ea2"
                 ],
                 borderWidth: 1,
             },
@@ -148,7 +150,7 @@ const Chart = (props) => {
         },
         chartAndText: {
             display: 'flex',
-            flexBasis: '20%',
+            flexBasis: '25%',
             justifyContent: 'space-around',
             alignItems: 'center',
             marginBottom: '10px'
@@ -159,7 +161,8 @@ const Chart = (props) => {
             justifyContent: 'flex-around',
             alignItems: 'center',
             fontSize: '0.7rem',
-            lineHeight: '1.35rem'
+            lineHeight: '1.35rem',
+            paddingTop:'10px'
         }
 
     }
