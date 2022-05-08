@@ -1,6 +1,6 @@
 import React from "react";
 import { Line } from "react-chartjs-2";
-import { dataset_settings, options } from "./chart_settings";
+import { dataset_settings, options, height } from "./chart_settings";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -20,39 +20,42 @@ ChartJS.register(
   Tooltip,
   Legend
 );
-const data = {
-  labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
-  datasets: [
-    {
-      ...dataset_settings,
-      label: "Used",
-      data: [11, 53, 3, 41, 45, 65],
-      backgroundColor: "#187498",
-      borderColor: "#187498",
-    },
-    {
-      ...dataset_settings,
-      label: "Free",
-      data: [33, 53, 85, 41, 44, 65],
-      backgroundColor: "#36AE7C",
-      borderColor: "#36AE7C",
-    },
-    {
-      ...dataset_settings,
-      label: "Cached",
-      data: [31, 33, 55, 41, 44, 87],
-      backgroundColor: "#82954B",
-      borderColor: "#82954B",
-    },
-  ],
-};
 
-export default function LoadChart() {
+export default function LoadChart(props) {
+  const data = {
+    labels: props.dates,
+    datasets: [
+      {
+        ...dataset_settings,
+        label: "Free",
+        data: props.memortUsage.freeMemory,
+        backgroundColor: "#4E944F",
+        borderColor: "#4E944F",
+      },
+      {
+        ...dataset_settings,
+        label: "Used",
+        data: props.memortUsage.usedMemory,
+        backgroundColor: "#4D4C7D",
+        borderColor: "#4D4C7D",
+      },
+
+      {
+        ...dataset_settings,
+        label: "Cached",
+        data: props.memortUsage.cachedMemory,
+        backgroundColor: "#E9D5DA",
+        borderColor: "#E9D5DA",
+      },
+    ],
+  };
+
+  options.plugins.title.text = "Memort Usage";
   return (
     <div>
       <Line
         width={document.documentElement.clientWidth}
-        height={400}
+        height={height}
         data={data}
         options={options}
       />

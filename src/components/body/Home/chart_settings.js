@@ -1,28 +1,37 @@
 export const dataset_settings = {
-    lineTension: 0.2,
-    pointRadius: 0,
-    pointHoverRadius: 5,
-    fill: false,
-    borderWidth: 1.5
-}
+  lineTension: 0.2,
+  pointRadius: 0,
+  pointHoverRadius: 5,
+  fill: false,
+  borderWidth: 1.5,
+};
 export const options = {
-    padding: false,
-    responsive: true,
-    interaction: {
-        mode: 'index',
-        intersect: false,
+  padding: false,
+  responsive: true,
+  interaction: {
+    mode: "index",
+    intersect: false,
+  },
+  animation: {
+    duration: 250 * 1.5,
+    easing: "linear",
+  },
+  plugins: {
+    legend: {
+      position: "top",
     },
-    animation: {
-        duration: 250 * 1.5,
-        easing: 'linear'
+    title: {
+      display: true,
+      text: "Working",
     },
-    plugins: {
-        legend: {
-            position: 'top',
-        },
-        title: {
-            display: true,
-        },
-
+  },
+  scales: {
+    x: {
+      ticks: {
+        maxRotation: 90,
+        minRotation: 0,
+      },
     },
-}
+  },
+};
+export const height = 250;

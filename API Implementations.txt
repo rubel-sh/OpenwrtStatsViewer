@@ -1,0 +1,16 @@
+Loads:
+	labels	: [date,date,date],
+	dataset	:[
+		{
+		label:'1 Min',
+		data : []
+		},
+		{
+		label:'5 Min',
+		data : []
+		}
+	]
+
+Memory:
+	labels	: [date,date,date],
+	data		: []
