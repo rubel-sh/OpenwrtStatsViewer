@@ -44,8 +44,17 @@ export default function LoadChart(props) {
   };
   let option = {
     ...options,
+    plugins: {
+      legend: {
+        position: "top",
+      },
+      title: {
+        display: true,
+        text: "CPU Load Average",
+      },
+    },
   };
-  option.plugins.title.text = "CPU Load Average";
+
   return (
     <div>
       <Line

@@ -50,14 +50,26 @@ export default function LoadChart(props) {
     ],
   };
 
-  options.plugins.title.text = "Memory Usage";
+  let option = {
+    ...options,
+    plugins: {
+      legend: {
+        position: "top",
+      },
+      title: {
+        display: true,
+        text: "Memory Usage",
+      },
+    },
+  };
+
   return (
     <div>
       <Line
         width={document.documentElement.clientWidth}
         height={height}
         data={data}
-        options={options}
+        options={option}
       />
     </div>
   );
