@@ -42,14 +42,17 @@ export default function LoadChart(props) {
       },
     ],
   };
-  options.plugins.title.text = "CPU Load Average";
+  let option = {
+    ...options,
+  };
+  option.plugins.title.text = "CPU Load Average";
   return (
     <div>
       <Line
         width={document.documentElement.clientWidth}
         height={height}
         data={data}
-        options={options}
+        options={option}
       />
     </div>
   );
