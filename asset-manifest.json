@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/OpenwrtStatsViewer/static/css/main.17b764d0.css",
-    "main.js": "/OpenwrtStatsViewer/static/js/main.76c230eb.js",
+    "main.js": "/OpenwrtStatsViewer/static/js/main.27c4dbab.js",
     "static/media/fontawesome-webfont.svg?v=4.7.0": "/OpenwrtStatsViewer/static/media/fontawesome-webfont.c1e38fd9e0e74ba58f7a.svg",
     "static/media/fontawesome-webfont.eot": "/OpenwrtStatsViewer/static/media/fontawesome-webfont.8b43027f47b20503057d.eot",
     "static/media/fontawesome-webfont.ttf?v=4.7.0": "/OpenwrtStatsViewer/static/media/fontawesome-webfont.1e59d2330b4c6deb84b3.ttf",
@@ -10,10 +10,10 @@
     "static/media/bgc.svg": "/OpenwrtStatsViewer/static/media/bgc.aa0100569204ba4d3a9a.svg",
     "index.html": "/OpenwrtStatsViewer/index.html",
     "main.17b764d0.css.map": "/OpenwrtStatsViewer/static/css/main.17b764d0.css.map",
-    "main.76c230eb.js.map": "/OpenwrtStatsViewer/static/js/main.76c230eb.js.map"
+    "main.27c4dbab.js.map": "/OpenwrtStatsViewer/static/js/main.27c4dbab.js.map"
   },
   "entrypoints": [
     "static/css/main.17b764d0.css",
-    "static/js/main.76c230eb.js"
+    "static/js/main.27c4dbab.js"
   ]
 }
