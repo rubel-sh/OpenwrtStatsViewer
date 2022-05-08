@@ -50,7 +50,7 @@ export default function LoadChart(props) {
     ],
   };
 
-  options.plugins.title.text = "Memort Usage";
+  options.plugins.title.text = "Memory Usage";
   return (
     <div>
       <Line

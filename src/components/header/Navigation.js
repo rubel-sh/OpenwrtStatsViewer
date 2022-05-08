@@ -29,7 +29,7 @@ class Navigation extends Component {
       <div>
         <Navbar dark color="dark" expand="lg">
           <div className="container-md">
-            <NavbarBrand href="/">
+            <NavbarBrand href="/OpenwrtStatsViewer">
               <img
                 alt="Openwrt Logo"
                 src="https://i.ibb.co/cDmBYxm/Screenshot-2022-04-19-023609-removebg-preview-1.png"

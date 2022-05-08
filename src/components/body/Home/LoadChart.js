@@ -24,7 +24,6 @@ ChartJS.register(
 
 export default function LoadChart(props) {
   const data = {
-    // Date Jabe Min Ago diye (moment.js er bebohar hobe)
     labels: props.dates,
     datasets: [
       {
