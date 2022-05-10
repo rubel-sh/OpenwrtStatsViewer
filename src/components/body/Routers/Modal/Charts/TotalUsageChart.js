@@ -136,8 +136,8 @@ const Chart = (props) => {
     p: {
       marginTop: "10px",
       textAlign: "center",
-      fontWeight: "300",
-      fontSize: "1.5rem",
+      fontWeight: "400",
+      fontSize: "1.3rem",
     },
     pie: {
       display: "inline-block",
@@ -161,10 +161,14 @@ const Chart = (props) => {
       paddingTop: "10px",
     },
   };
+  console.log(props.selectedClient);
   return (
     <div>
       <div style={styles.totalUsageHeader}>
-        <p style={styles.p}>{props.selectedClient.user} in Total Usage</p>
+        <div>
+          <p style={styles.p}>{props.selectedClient.user} in Total Usage</p>
+          <span>MAC: {props.selectedClient.macAdderess.toUpperCase()}</span>
+        </div>
         <div style={styles.chartAndText}>
           <Pie
             style={styles.pie}
