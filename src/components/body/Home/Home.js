@@ -38,7 +38,7 @@ class Home extends Component {
         const fiveMin = result.map((data) => data.load[1]);
         // MemortUsage calculateData
         const usedMemory = result.map((data) => data.memory[1]);
-        const freeMemory = result.map((data) => data.memory[2]);
+        const freeMemory = result.map((data) => data.memory[5]);
         const cachedMemory = result.map((data) => data.memory[4]);
         // Updating State
         this.setState({
