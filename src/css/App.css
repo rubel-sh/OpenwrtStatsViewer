@@ -4,7 +4,6 @@
 :root {
   --primary-color: #8bc6ec;
   --secondary-color: #3aa6ee;
-  --secondary-color: rgba(62, 177, 156, 0.897);
 }
 
 body {
@@ -136,7 +135,7 @@ canvus {
   40% {
     transform: scale(1.1);
     opacity: 1;
-    background-color: #3aa6ee;
+    background-color: rgba(62, 177, 156, 0.897);
   }
 
   100% {

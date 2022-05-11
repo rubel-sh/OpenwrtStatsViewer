@@ -160,7 +160,6 @@ const Chart = (props) => {
       paddingTop: "10px",
     },
   };
-  console.log(props.selectedRouterUsage);
   return (
     <div>
       <div style={styles.totalUsageHeader}>

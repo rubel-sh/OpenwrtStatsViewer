@@ -71,7 +71,6 @@ class Routers extends Component {
   };
 
   render() {
-    console.log("RouterPage states: ", this.state);
     if (this.props.sliderState.isLoading) {
       return (
         <div

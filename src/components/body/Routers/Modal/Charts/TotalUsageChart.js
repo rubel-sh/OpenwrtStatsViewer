@@ -161,7 +161,6 @@ const Chart = (props) => {
       paddingTop: "10px",
     },
   };
-  console.log(props.selectedClient);
   return (
     <div>
       <div style={styles.totalUsageHeader}>
