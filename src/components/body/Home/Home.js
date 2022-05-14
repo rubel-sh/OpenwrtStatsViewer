@@ -31,7 +31,7 @@ class Home extends Component {
         // Dates Array
         let dates = result.reduce((acc, data) => [...acc, data.date], []);
         dates = dates.map((data) =>
-          moment(new Date(data * 1000).toLocaleString()).fromNow()
+          moment(new Date(data * 1000).toISOString()).fromNow()
         );
         // LoadAverage calculateData
         const oneMin = result.map((data) => data.load[0]);

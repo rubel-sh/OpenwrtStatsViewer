@@ -51,7 +51,7 @@ const Chart = (props) => {
   const formatMB = (perm) => perm / 1048576;
   // Using momentJS
   const labels = props.selectedClient.date.map((data) =>
-    moment(new Date(data * 1000).toLocaleString()).format("D/MM [-] LT")
+    moment(new Date(data * 1000).toISOString()).format("D/MM [-] LT")
   );
   const tDownData = props.selectedClient.totaldownloads.map((data) =>
     parseInt(formatMB(data))

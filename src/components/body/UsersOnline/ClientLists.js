@@ -17,7 +17,7 @@ function ClientLists() {
         const lastArray = result.at(-1);
         // Format date using momentJS
         const date = moment(
-          new Date(lastArray.date * 1000).toLocaleString()
+          new Date(lastArray.date * 1000).toISOString()
         ).fromNow();
         // save all users from lastArray
         const users = lastArray.users;
@@ -32,6 +32,7 @@ function ClientLists() {
       <Box
         className={styles.box_container}
         sx={{ animationDelay: 50 * index + "ms" }}
+        key={index}
       >
         <Typography
           variant="h6"
