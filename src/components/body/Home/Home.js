@@ -30,8 +30,8 @@ class Home extends Component {
         const upTime = result.at(-1).upTime;
         // Dates Array
         let dates = result.reduce((acc, data) => [...acc, data.date], []);
-        dates = dates.map((data) =>
-          moment(new Date(data * 1000).toISOString()).fromNow()
+        dates = dates.map((date) =>
+          moment(new Date(date * 1000).toISOString()).fromNow()
         );
         // LoadAverage calculateData
         const oneMin = result.map((data) => data.load[0]);
