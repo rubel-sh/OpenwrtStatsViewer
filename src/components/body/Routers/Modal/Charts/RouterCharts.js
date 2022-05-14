@@ -62,10 +62,11 @@ const Chart = (props) => {
   let tDownloadClient = null;
   let tUploadClient = null;
   props.selectedRouterUsage.data.map((down) => {
-    tDownloadClient = tDownloadClient + parseFloat(down.totaldownloads);
+    return (tDownloadClient =
+      tDownloadClient + parseFloat(down.totaldownloads));
   });
   props.selectedRouterUsage.data.map((up) => {
-    tUploadClient = tUploadClient + parseInt(up.totaluploads);
+    return (tUploadClient = tUploadClient + parseInt(up.totaluploads));
   });
   tDownloadClient = parseInt(formatMB(tDownloadClient));
   tUploadClient = parseInt(formatMB(tUploadClient));

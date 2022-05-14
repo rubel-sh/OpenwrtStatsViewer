@@ -63,10 +63,10 @@ const Chart = (props) => {
   let tDownloadClient = null;
   let tUploadClient = null;
   props.selectedClient.totaldownloads.map((down) => {
-    tDownloadClient = tDownloadClient + parseFloat(down);
+    return (tDownloadClient = tDownloadClient + parseFloat(down));
   });
   props.selectedClient.totaluploads.map((up) => {
-    tUploadClient = tUploadClient + parseInt(up);
+    return (tUploadClient = tUploadClient + parseInt(up));
   });
   tDownloadClient = parseInt(formatMB(tDownloadClient));
   tUploadClient = parseInt(formatMB(tUploadClient));
