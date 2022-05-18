@@ -14,7 +14,7 @@ import {
 import { Line, Pie } from "react-chartjs-2";
 import moment from "moment";
 
-const Chart = (props) => {
+const UsageChart = (props) => {
   ChartJS.register(
     CategoryScale,
     LinearScale,
@@ -49,6 +49,7 @@ const Chart = (props) => {
   options.plugins.title.text = props.selectedRouterUsage.router;
   const formatMB = (perm) => perm / 1048576;
   // Using momentJS
+  console.log(props.selectedRouterUsage);
   const labels = props.selectedRouterUsage.data.map((data) =>
     moment(new Date(data.date * 1000).toISOString()).format("D/MM [-] LT")
   );
@@ -161,6 +162,7 @@ const Chart = (props) => {
       paddingTop: "10px",
     },
   };
+
   return (
     <div>
       <div style={styles.totalUsageHeader}>
@@ -184,9 +186,10 @@ const Chart = (props) => {
       </div>
 
       <hr />
+      <h5 style={{ textAlign: "center" }}>Usage in Megabytes</h5>
       <div className="canvus-container">{userGraph}</div>
     </div>
   );
 };
 
-export default Chart;
+export default UsageChart;

@@ -25,7 +25,7 @@ class Home extends Component {
     axios
       .get(ROUTER_STATS_API)
       .then((response) => {
-        const result = response.data;
+        const result = response.data.firstrouter;
         // Latest Uptime
         const upTime = result.at(-1).upTime;
         // Dates Array

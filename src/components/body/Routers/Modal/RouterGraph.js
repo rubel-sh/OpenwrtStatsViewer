@@ -1,6 +1,7 @@
 import React from "react";
 import { Modal, ModalBody, Button, ModalFooter } from "reactstrap";
-import RouterCharts from "./Charts/RouterCharts";
+import UsageChart from "./Charts/RouterCharts/UsageChart";
+import SpeedChart from "./Charts/RouterCharts/SpeedChart";
 
 const RouterGraph = (props) => {
   const style = {
@@ -16,7 +17,8 @@ const RouterGraph = (props) => {
       toggle={props.toggleRouterModalHandler}
     >
       <ModalBody>
-        <RouterCharts selectedRouterUsage={props.selectedRouterUsage} />
+        <UsageChart selectedRouterUsage={props.selectedRouterUsage} />
+        <SpeedChart selectedRouterUsage={props.selectedRouterUsage} />
       </ModalBody>
       <ModalFooter>
         <Button onClick={() => props.toggleRouterModalHandler()} color="danger">

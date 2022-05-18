@@ -11,7 +11,7 @@ function ClientLists() {
   useEffect(() => {
     axios
       .get(CLIENT_LIST_API)
-      .then((resposne) => resposne.data)
+      .then((resposne) => resposne.data.firstrouter)
       .then((result) => {
         // get the last array from response
         const lastArray = result.at(-1);
