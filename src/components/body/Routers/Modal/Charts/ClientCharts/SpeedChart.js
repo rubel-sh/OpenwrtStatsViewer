@@ -42,15 +42,15 @@ const SpeedChart = (props) => {
   };
   options.plugins.title.text =
     "Client Speeds in KBps: " + props.selectedClient.user;
-  const formatMB = (perm) => perm / 1024;
+  const formatKB = (perm) => perm / 1024;
   const labels = props.selectedClient.date.map((data) =>
     moment(new Date(data * 1000).toISOString()).format("D/MM [-] LT")
   );
   const tDownData = props.selectedClient.downData.map((data) =>
-    parseInt(formatMB(data))
+    parseInt(formatKB(data))
   );
   const tUpData = props.selectedClient.upData.map((data) =>
-    parseInt(formatMB(data))
+    parseInt(formatKB(data))
   );
   const data = {
     labels: labels,

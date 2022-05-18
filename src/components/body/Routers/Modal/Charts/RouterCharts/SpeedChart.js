@@ -41,16 +41,17 @@ const SpeedChart = (props) => {
     },
   };
   // Using momentJS
-  const formatMB = (perm) => perm / 1048576;
+  const formatKB = (perm) => perm / 1024;
   const labels = props.selectedRouterUsage.data.map((data) =>
     moment(new Date(data.date * 1000).toISOString()).format("D/MM [-] LT")
   );
   const downData = props.selectedRouterUsage.data.map((data) =>
-    parseInt(formatMB(data.downData))
+    parseInt(formatKB(data.downData))
   );
   const upData = props.selectedRouterUsage.data.map((data) =>
-    parseInt(formatMB(data.upData))
+    parseInt(formatKB(data.upData))
   );
+
   const data = {
     labels: labels,
     datasets: [

@@ -49,7 +49,6 @@ const UsageChart = (props) => {
   options.plugins.title.text = props.selectedRouterUsage.router;
   const formatMB = (perm) => perm / 1048576;
   // Using momentJS
-  console.log(props.selectedRouterUsage);
   const labels = props.selectedRouterUsage.data.map((data) =>
     moment(new Date(data.date * 1000).toISOString()).format("D/MM [-] LT")
   );
