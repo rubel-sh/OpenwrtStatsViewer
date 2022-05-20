@@ -65,7 +65,7 @@ class Home extends Component {
         className={styles.container}
       >
         <Uptime latestTime={this.state.upTime} />
-        <hr style={{ zIndex: "9999" }} />
+        <hr />
         <div className={styles.chartContainer}>
           <LoadChart
             dates={this.state.dates}

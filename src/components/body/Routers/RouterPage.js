@@ -105,9 +105,9 @@ class Routers extends Component {
           );
           return (
             <ButtonGroup
-              sx={{
-                orientation: { sx: "vertical", md: "vertical" },
-              }}
+              variant="contained"
+              color="success"
+              orientation="vertical"
               key={index}
             >
               <Button
@@ -121,7 +121,7 @@ class Routers extends Component {
                     md: "1.115rem",
                   },
                   "&:hover": {
-                    backgroundColor: "rgb(62, 177, 156)",
+                    backgroundColor: "rgb(42, 163, 141)",
                   },
                 }}
                 className="router_child"
@@ -137,14 +137,14 @@ class Routers extends Component {
                 variant="contained"
                 size="large"
                 sx={{
-                  backgroundColor: "rgb(45, 139, 122)",
+                  backgroundColor: "rgb(62, 177, 156)",
                   gap: "10",
                   fontSize: {
                     xs: "1rem",
                     md: "1.115rem",
                   },
                   "&:hover": {
-                    backgroundColor: "rgb(62, 177, 156)",
+                    backgroundColor: "rgb(42, 163, 141)",
                   },
                 }}
                 className="router_child"
@@ -155,7 +155,7 @@ class Routers extends Component {
                   );
                 }}
               >
-                D: {formatBytes(usageHistory.tDownloads)} U:{" "}
+                DOWN: {formatBytes(usageHistory.tDownloads)} Up:{" "}
                 {formatBytes(usageHistory.tUploads)}
               </Button>
             </ButtonGroup>
