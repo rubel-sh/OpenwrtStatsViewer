@@ -9,7 +9,8 @@
 body {
   background-color: var(--primary-color);
   background-image: url(./bgc.svg);
-  background-size: contain;
+  background-position: fixed;
+  /* background-size: contain; */
   filter: blur(20);
 }
 
@@ -106,11 +107,9 @@ canvus {
   color: rgb(32, 32, 32);
   cursor: pointer;
   background-color: rgba(255, 255, 255, 0.6);
-  /* backdrop-filter: blur(5px); */
-  /* background-image: linear-gradient(132deg, #86b648 0%, #16A085 100%); */
   border-radius: 2rem;
-  animation: dropdown 0.5s ease forwards;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  animation: dropdown 300ms ease forwards;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px;
   transition: all 0.3s ease;
   visibility: hidden;
 }
