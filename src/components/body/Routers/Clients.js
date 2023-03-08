@@ -7,9 +7,16 @@ const mapStateToProps = (props) => {
     selectedDate: props.sliderSelectorState.dateSelected,
   };
 };
-const Clients = (props) => {
+const Clients = ({ selectedRouter, fetchSelectedClient, selectedDate }) => {
   // Get Users list
-  const user = props.selectedRouter.users.map((userr, index) => {
+  const sortingUsers = selectedRouter.users.map((userr, index) => {
+    let totalDownload = null;
+    userr.totaldownloads.map(
+      (adding) => (totalDownload = totalDownload + parseFloat(adding))
+    );
+  });
+  console.log(selectedRouter);
+  const user = selectedRouter.users.map((userr, index) => {
     let totalDownload = null;
     let totalUpload = null;
     userr.totaldownloads.map(
@@ -27,7 +34,7 @@ const Clients = (props) => {
         key={index}
         className={`rc_container rc_${index}`}
         style={style}
-        onClick={() => props.fetchSelectedClient(userr)}
+        onClick={() => fetchSelectedClient(userr)}
       >
         <div className="rc_username ">{userr.user}</div>
         <div className="rc_usermac ">{userr.macAdderess.toUpperCase()}</div>
@@ -47,8 +54,8 @@ const Clients = (props) => {
   return (
     <div>
       <h5 className="rc">
-        <strong>{props.selectedRouter.router}</strong> showing{" "}
-        <strong>{props.selectedDate}</strong> days data.
+        <strong>{selectedRouter.router}</strong> showing{" "}
+        <strong>{selectedDate}</strong> days data.
       </h5>
       <ul style={{ perspective: "1000px" }} className="rc_parent">
         {user}
